@@ -1,4 +1,6 @@
-This is a solution to the [Project Phase , Milestone 1](https://w2pp.zuriboard.com/dashboard/team/148/task/45).Task Title: Documentation, Design Sketch
+This is a solution to the [Project Phase , Milestone 1](https://w2pp.zuriboard.com/dashboard/team/148/task/45).
+
+## Task Title: Documentation, Design Sketch
 
 
 - [Overview](#overview)
@@ -55,7 +57,6 @@ A non-registered user needs to sign up in order to have full access.
 The Backend Team Made tables/entities first:
 
 User
-Profile
 Library
 Comment
 Code_snippets
