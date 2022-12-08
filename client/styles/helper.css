@@ -1,0 +1,11 @@
+.w-60 {
+  width: 60%;
+}
+.w-80 {
+  width: 80%;
+}
+.line {
+  height: 1px;
+  width: 40%;
+  background-color: black;
+}

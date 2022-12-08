@@ -1,0 +1,23 @@
+.btn {
+  color: white !important;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-form {
+  display: grid;
+  place-items: center;
+}
+.grid-img {
+  background-image: url('/client/images/sample.jpg');
+  background-size: 100% 100%;
+}
+ul li {
+  margin-bottom: 10px;
+}
+/* .grid-img, .grid-form {
+  grid-row: 1;
+  grid-column: 1;
+} */
+/* SIGN UP */
