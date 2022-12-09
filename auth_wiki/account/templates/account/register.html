@@ -1,7 +1,9 @@
 {% extends 'library/base.html'  %}
 {% block content %} 
 
-{% load crispy_forms_tags %}         
+{% load crispy_forms_tags %}
+{% load socialaccount %}
+{% load static %}         
 
 
 <div class="container py-5">
@@ -11,6 +13,20 @@
 		{{ register_form|crispy }}                    
 		<button class="btn btn-primary" type="submit">Register</button>
 	</form>
+	{% comment %} <div class=" signin text-center">
+		{% if user.is_authenticated %}
+ 		 <p>Welcome, You are logged in as {{ user.username }}</p>
+	{% else %}
+	<a href="{% provider_login_url 'google' %}" class="text-dark"><img src="{% static 'library/images/signinwithgoogle.jpg' %}" style="width:14rem; height:auto"></a>
+{% endif %}
+	<!---->	
+		<a href="{% provider_login_url 'google' %}" class="text-dark"><img src="{% static 'library/images/signinwithgoogle.jpg' %}" style="width:14rem; height:auto"></a>
+	  </div>
+	
+	  <br><br>
+	
+	  <div style="width: 100%; height: 15px; border-bottom: 1px solid lightgray; text-align: center">
+		<span class="text-muted" style="margin-top:-15% !important; font-size: 11px; background-color: white; padding: 0px 10px;"> {% endcomment %}
 	<p class="text-center">If you already have an account, <a href="{% url 'account:login' %}">login</a> instead.</p>
 </div>
 
