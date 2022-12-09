@@ -20,8 +20,8 @@ class DownVoteSerializer(serializers.ModelSerializer):
 
 class CommentSerializer(serializers.ModelSerializer):
     user = serializers.StringRelatedField()
-    upvote_user = UpVoteSerializer(many=True, read_only=True)
-    downvote_user = DownVoteSerializer(many=True, read_only=True)
+    upvote = UpVoteSerializer(many=True, read_only=True)
+    downvote = DownVoteSerializer(many=True, read_only=True)
 
     class Meta:
         model = Comment
