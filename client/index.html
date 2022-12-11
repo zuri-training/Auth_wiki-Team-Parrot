@@ -10,25 +10,73 @@
 
     <!-- Bootstrap CSS -->
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
-    />
-
-    <!-- google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,400;0,500;1,100&display=swap"
-      rel="stylesheet"
     />
     <title>Auth_Wiki</title>
   </head>
-  <body>
+  <body id="home">
     <!-- note: this page is for unauthenticated users -->
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg un-nav">
+    <nav class="navbar navbar-expand-lg bg-light">
+      <div class="container-fluid">
+        <div class="nav-logo pl-5">
+          <a class="navbar-brand" href="#"
+            ><span><img src="./assets/head.png" alt="logo-head" /></span>
+            <span class="logo-text">AUTH-WIKI</span></a
+          >
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">FAQS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">DOCUMENTATION</a>
+            </li>
+          </ul>
+          <div class="d-flex">
+            <div class="me-4">
+              <a href="./auth/login.html" class="btn btn-warning">
+               Sign In
+              </a>
+            </div>
+
+            <div>
+              <a href="./auth/signup.html" class="btn btn-primary">Sign Up</a>
+            </div>
+
+            <!-- Auth users -->
+            <!-- <div>
+              <a href="#" class="btn btn-warning">
+                <span>
+                  <img class="update-profile__img" src="./assets/head.png" alt="logo-head"
+                /></span>
+                <span>Profile</span>
+              </a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- <nav class="navbar navbar-expand-lg un-nav">
       <div class="container-fluid">
         <div class="nav-logo pl-5">
           <a class="navbar-brand" href="#"
@@ -81,7 +129,7 @@
           </div>
         </div>
       </div>
-    </nav>
+    </nav> -->
 
     <!-- header section -->
     <header class="container-fluid py-5">
@@ -91,20 +139,22 @@
           <img class="header-img img-fluid" src="./assets/person.png" alt="img" />
         </div>
         <!-- header community -->
-        <div class="community col-md-12 col-lg-6 d-flex flex-column justify-content-center">
-          <h1 class="header-community font-weight-bold">Join our community!</h1>
-          <p class="w-75 py-4">
+        <div
+          class="col-md-12 col-lg-6 d-flex flex-column justify-content-center text-center align-items-center"
+        >
+          <h1 class="text-primary font-weight-bold">Join our community!</h1>
+          <p class="w-75 my-3 my-md-4">
             We welcome you to be part of our ever-growing community! AuthWiki is a platform that
             allow authenticated users have full access to the platform, view and interact with the
             documentation. They can also register to make contributions by making comments and
             reactions. Users that have authenticated access can browse through the library, view and
             download code samples.
           </p>
-          <p class="w-75 pb-3">
+          <!-- <p class="w-75 pb-3">
             On the other hand, unauthenticated users can view, interact and register to contribute,
             downloading of codes is not available.
-          </p>
-          <a href="" class="header-cta text-white px-5 py-2"> Sign Up For Full Access </a>
+          </p> -->
+          <a href="#" class="btn btn-primary mx-auto" role="button">Browse full library</a>
         </div>
       </div>
     </header>
@@ -140,87 +190,42 @@
     <main class="container">
       <!-- .search-code items -->
       <div class="search-code__items">
-        <div class="row my-5">
-          <div class="col-12 col-md-5 search-code__card shadow-sm">
+        <div class="grid gap-5">
+          <div class="w-100 search-code__card shadow-sm">
             <div class="d-flex flex-column py-4 px-3 box">
-              <div class="top-content">
+              <div>
                 <h5>AuthWiki-http-bearer</h5>
-                <p class="text-wrap w-50 font-light">
+                <p class="text-wrap w-75 text-grey">
                   HTTP Bearer authentication codes for Auth-Wiki
                 </p>
               </div>
 
-              <div class="bottom-content download font-bold">
-                <span
-                  ><img
-                    class="img-responsive downlod-icon"
-                    src="./assets/Vector.png"
-                    alt="download-icon"
-                /></span>
-                <span class="amount">158,88</span>
+              <div class="font-bold">
+                <img
+                  class="img-responsive downlod-icon"
+                  src="./assets/Vector.png"
+                  alt="download-icon"
+                />
+                <span>15,888 Downloads</span>
               </div>
             </div>
           </div>
-          <div class="col-12 col-md-5 search-code__card shadow-sm ml-5">
+          <div class="w-100 search-code__card shadow-sm">
             <div class="d-flex flex-column py-4 px-3 box">
-              <div class="top-content">
+              <div>
                 <h5>AuthWiki-http-bearer</h5>
-                <p class="text-wrap w-50 font-light">
+                <p class="text-wrap w-75 text-grey">
                   HTTP Bearer authentication codes for Auth-Wiki
                 </p>
               </div>
 
-              <div class="bottom-content download font-bold">
-                <span
-                  ><img
-                    class="img-responsive downlod-icon"
-                    src="./assets/Vector.png"
-                    alt="download-icon"
-                /></span>
-                <span class="amount">158,88</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-12 col-md-5 search-code__card shadow-sm">
-            <div class="d-flex flex-column px-3 box">
-              <div class="top-content">
-                <h5>AuthWiki-http-bearer</h5>
-                <p class="text-wrap w-50 font-light">
-                  HTTP Bearer authentication codes for Auth-Wiki
-                </p>
-              </div>
-
-              <div class="bottom-content download font-bold">
-                <span
-                  ><img
-                    class="img-responsive downlod-icon"
-                    src="./assets/Vector.png"
-                    alt="download-icon"
-                /></span>
-                <span class="amount">158,88</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-5 search-code__card shadow-sm ml-5">
-            <div class="d-flex flex-column py-4 px-3 box">
-              <div class="top-content">
-                <h5>AuthWiki-http-bearer</h5>
-                <p class="text-wrap w-50 font-light">
-                  HTTP Bearer authentication codes for Auth-Wiki
-                </p>
-              </div>
-
-              <div class="bottom-content download font-bold">
-                <span
-                  ><img
-                    class="img-responsive downlod-icon"
-                    src="./assets/Vector.png"
-                    alt="download-icon"
-                /></span>
-                <span class="amount">158,88</span>
+              <div class="font-bold">
+                <img
+                  class="img-responsive downlod-icon"
+                  src="./assets/Vector.png"
+                  alt="download-icon"
+                />
+                <span>15,888 Downloads</span>
               </div>
             </div>
           </div>
@@ -229,55 +234,36 @@
     </main>
 
     <!-- footer -->
-    <footer class="pt-5">
-      <div class="top-footer py-4">
+    <footer class="mt-5">
+      <div class="bg-light-grey py-4">
         <div class="d-flex justify-content-between align-items-center container">
-          <div class="footer-logo pl-5">
-            <a class="footer-brand" href="#"
-              ><span><img src="./assets/head.png" alt="logo-head" /></span>
-              <span class="logo-text">AUTH-WIKI</span></a
-            >
-            <p>Zuri Team Parrot</p>
+          <div>
+            <a href="#home">
+              <img src="./assets/head.png" alt="logo-head" />
+              <span class="logo-text">AUTH-WIKI</span>
+            </a>
+            <p class="mt-2">Zuri Team Parrot</p>
           </div>
 
-          <div class="footer-section d-flex justify-content-around font-semibold">
-            <div class="footer-links">
-              <ul>
-                <li>
-                  <a class="nav-link" href="#">ABOUT</a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">FAQS</a>
-                </li>
-                <li>
-                  <a class="nav-link" href="#">DOCUMENTATION</a>
-                </li>
-              </ul>
-            </div>
-            <div class="footer-details">
-              <a href="">Update-profile</a>
-            </div>
+          <div class="d-flex justify-content-around font-semibold">
+            <ul class="list-style-none">
+              <li>
+                <a class="nav-link" href="#">ABOUT</a>
+              </li>
+              <li>
+                <a class="nav-link" href="#">FAQS</a>
+              </li>
+              <li>
+                <a class="nav-link" href="#">DOCUMENTATION</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
-      <div class="bottom-footer"></div>
     </footer>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
   </body>
