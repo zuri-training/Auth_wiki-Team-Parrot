@@ -24,6 +24,8 @@ a {
 /* li {
   list-style-type: none;
 } */
+
+
 /* HELPER STYLES */
 .w-60 {
   width: 60%;
@@ -40,17 +42,27 @@ a {
   color: white !important;
 }
 /* ONBOARDING STYLES */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+
+.contain{
+  width: 85%;
+  height: fit-content;
+  margin: auto;
+  /* background-color: rgba(0, 0, 0, 0.1); */
 }
-.grid-form {
-  display: grid;
-  place-items: center;
+
+.main-form {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
 }
-.grid-img {
-  background-image: url('/client/assets/sample.jpg');
-  background-size: 100% 100%;
+
+.main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 .guidelines li {
   margin-bottom: 10px;
