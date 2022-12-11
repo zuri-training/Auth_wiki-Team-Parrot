@@ -49,6 +49,7 @@ label {
   font-size: var(--font-medium);
 }
 
+
 /* li {
   list-style-type: none;
 } */
@@ -90,7 +91,24 @@ label {
   font-size: var(--font-medium) !important;
 }
 /* ONBOARDING STYLES */
-@media (min-width: 320px) {
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-form {
+  display: grid;
+  place-items: center;
+  grid-row: 1;
+  grid-column: 2;
+}
+.grid-img {
+  background-image: url('/client/assets/sample.jpg');
+  background-size: 100% 100%;
+}
+.form {
+  width: 60%;
+}
+@media screen and (max-width: 900px) {
   .grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -100,29 +118,11 @@ label {
     grid-row: 1;
     grid-column: 1;
   }
-}
-@media (min-width: 768px) {
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .grid-form {
-    grid-row: 1;
-    grid-column: 2;
-  }
   .form {
-    width: 60%;
+    width:100%;
   }
 }
 
-.grid-form {
-  display: grid;
-  place-items: center;
-}
-.grid-img {
-  background-image: url('/client/assets/sample.jpg');
-  background-size: 100% 100%;
-}
 .guidelines li {
   margin-bottom: 10px;
 }
@@ -131,6 +131,9 @@ label {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+}
+.team-img {
+  width: 100px;
 }
 @media (min-width: 540px) {
   .team {
@@ -145,34 +148,15 @@ label {
 /* INDEX STYLES */
 
 /* navbar styles */
-.un-nav {
-  background-color: #d9dffc !important;
-  color: var(--dark-blue);
-}
 
 .logo-text {
   font-weight: 500;
-}
-
-.un-link {
-  border: 1px solid #fd7702;
-  border-radius: 5px;
-}
-
-.update-profile__img {
-  width: 20px;
-  /* height: 16px; */
 }
 
 /* header styles */
 .header-img {
   width: 664px;
   height: 484px;
-}
-
-.header-cta {
-  background: var(--light-blue);
-  max-width: 270px;
 }
 
 /* search code styles section  */
@@ -196,11 +180,6 @@ label {
   margin: 0 auto !important;
 }
 
-.top-content h5 {
-  font-size: 17px;
-  color: var(--dark-blue);
-}
-
 .search-code__card {
   border: 1px solid #888f9f;
 }
@@ -215,13 +194,6 @@ label {
     padding-left: 4rem;
   }
 }
-/* // Medium devices (tablets, 768px and up) */
-
-/* // Small devices (landscape phones, 576px and up) */
-/* @media (min-width: 576px) {
-
-} */
-
 @media (max-width: 100px) {
   .search-code__box {
     width: 90% !important;
