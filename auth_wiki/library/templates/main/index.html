@@ -1,0 +1,105 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block page_title %} Home {% endblock %}
+
+{% block content %}
+<!-- header section -->
+<header class="container-fluid py-5">
+  <div class="row">
+    <!-- header image -->
+    <div class="header-img col-md-12 col-lg-6">
+      <img class="header-img img-fluid" src="{% static 'main/img/community.jpg' %}" alt="img" />
+    </div>
+    <!-- header community -->
+    <div class="col-md-12 col-lg-6 d-flex flex-column justify-content-center text-center align-items-center">
+      <h1 class="text-primary font-weight-bold">Join our community!</h1>
+      <p class="w-75 my-3 my-md-4">
+        We welcome you to be part of our ever-growing community! AuthWiki is a platform that
+        allow authenticated users have full access to the platform, view and interact with the
+        documentation. They can also register to make contributions by making comments and
+        reactions. Users that have authenticated access can browse through the library, view and
+        download code samples.
+      </p>
+      <!-- <p class="w-75 pb-3">
+        On the other hand, unauthenticated users can view, interact and register to contribute,
+        downloading of codes is not available.
+      </p> -->
+      <a href="#" class="btn btn-primary mx-auto" role="button">Browse full library</a>
+    </div>
+  </div>
+</header>
+
+<!-- search for code section -->
+<section
+  class="search-code container-fluid d-flex justify-content-center align-items-center py-5"
+>
+  <div class="text-center">
+    <h3 class="font-bold">Search For Codes</h3>
+    <p class="font-semibold">Codes Available</p>
+    <!-- search code input box -->
+    <div class="search-code__box d-flex py-1 ps-4 pe-3">
+      <span class="d-flex justify-content-center align-items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          class="bi bi-search"
+          viewBox="0 0 16 16"
+        >
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+        </span>
+      <input class="py-1 ps-4 w-100 search-code__input" type="search" name="" id="" />
+    </div>
+  </div>
+</section>
+
+<!-- search codes items -->
+<main class="container">
+  <!-- .search-code items -->
+  <div class="search-code__items">
+    <div class="grid gap-5">
+      <div class="w-100 search-code__card shadow-sm">
+        <div class="d-flex flex-column py-4 px-3 box">
+          <div>
+            <h5>AuthWiki-http-bearer</h5>
+            <p class="text-wrap w-75 text-grey">
+              HTTP Bearer authentication codes for Auth-Wiki
+            </p>
+          </div>
+
+          <div class="font-bold">
+            <img
+              class="img-responsive downlod-icon"
+              src="./assets/Vector.png"
+              alt="download-icon"
+            />
+            <span>15,888 Downloads</span>
+          </div>
+        </div>
+      </div>
+      <div class="w-100 search-code__card shadow-sm">
+        <div class="d-flex flex-column py-4 px-3 box">
+          <div>
+            <h5>AuthWiki-http-bearer</h5>
+            <p class="text-wrap w-75 text-grey">
+              HTTP Bearer authentication codes for Auth-Wiki
+            </p>
+          </div>
+
+          <div class="font-bold">
+            <img
+              class="img-responsive downlod-icon"
+              src="./assets/Vector.png"
+              alt="download-icon"
+            />
+            <span>15,888 Downloads</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

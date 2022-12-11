@@ -41,7 +41,17 @@ INSTALLED_APPS = [
 
     # installed apps
     'account',
-    'library'
+    'library',
+    'crispy_forms',
+    'crispy_bootstrap5',
+    'widget_tweaks',
+    'rest_framework',
+    # for social and google sign in  
+    'allauth',  
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    #'allauth.account',
+    #'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
