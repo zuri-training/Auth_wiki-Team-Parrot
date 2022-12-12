@@ -8,7 +8,9 @@ This is a solution to the [Project Phase , Milestone 1](https://w2pp.zuriboard.c
 - [Autheticated Users](#Autheticated-Users)
   - [Un-Authenticated-users](#Un-Authenticated-users) 
   - [Database-Schema](#Database-Schema) 
--[TOOLS](#TOOLS)
+  
+- [TOOLS](#TOOLS)
+- [Team Members](#Meet-Our-Team)
 - [Author](#Author)
 - [Acknowledgments](#Acknowledgments)
 
@@ -73,7 +75,7 @@ Library has a one to many  relationships with code_snippet and comments
 
 Comments has a one to many  relationships with code_snippets
 
-![](./assets//img.jpeg)
+![](./auth_wiki/account/static/img/img.jpeg)
 ## TOOLS
 
 - **Figma**
@@ -83,6 +85,27 @@ Comments has a one to many  relationships with code_snippets
 - **Pen**
 - **Paper**
 
+
+## Meet Our Team
+
+- Rukayat Lamidi -- Product Designer
+- Bright Uwaoma -- Product Designer
+- Margaret Ekerendu -- Product Designer
+- Ebubechukwu Ijezie-- Product Designer
+- Ali Abdul-Quadir --  Product Designer
+- Ige Jide  -- Product designer
+- Loveth Iniovoghare  -- Product Designer
+- Damilola Bilewu -- Product Designer
+- Dorcas Abraham -- Product Designer
+- Akinde Oluwadamilola -- Product Designer
+- Oluwatimilehin Erinle -- Full stack Developer (Python)
+- Oluwaseun Akanji -- FullStack Developer (Python)
+- Khadija Danhassan - FullStack Developer (Python)
+- Onokwakpor Oghenekparobo -- Frontend Developer
+- Francis Chukwuoma -- Backend Developer (Python)
+- Oyepitan Fortune --Backend Developer (Python)
+- Henry Ugwu -- FullStack Developer (Python)
+- Morah Chukwuemeka - FullStack Developer (Python)
 
 ## Author
 
