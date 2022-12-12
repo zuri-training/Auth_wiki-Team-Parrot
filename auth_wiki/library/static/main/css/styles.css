@@ -1,0 +1,249 @@
+/* ROOT STYLES */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* variables */
+:root {
+  --font-roboto: 'Roboto Mono', monospace;
+  --dark-blue: #1f1148;
+  --light-blue: #2e45cc;
+  --font-small: 13px;
+  --grey: #888f9f;
+  --light-grey: #d9dffc;
+  --light-orange:#ebab7f;
+  --font-color:#4E447F;
+}
+
+@media (min-width: 300px) {
+  :root {
+    --font-medium: 12px;
+    --font-large: 19px;
+  }
+}
+@media (min-width: 768px) {
+  :root {
+    --font-medium: 16px;
+    --font-large: 24px;
+  }
+}
+
+body {
+  font-family: var(--font-roboto) !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+p {
+  font-size: var(--font-medium);
+}
+h3 {
+  font-size: var(--font-large) !important;
+}
+li {
+  font-size: var(--font-medium);
+}
+label {
+  font-size: var(--font-medium);
+}
+
+/* li {
+  list-style-type: none;
+} */
+/* HELPER STYLES */
+.bg-grey {
+  background-color: var(--grey);
+}
+.bg-light-grey {
+  background-color: var(--light-grey);
+}
+.text-primary {
+  color: var(--light-blue) !important;
+}
+.text-grey {
+  color: var(--grey);
+}
+.text-md {
+  font-size: var(--font-medium);
+}
+.text-sm {
+  font-size: var(--font-small);
+}
+.w-60 {
+  width: 60%;
+}
+.w-80 {
+  width: 80%;
+}
+.list-style-none {
+  list-style: none !important;
+}
+.line {
+  height: 1px;
+  width: 40%;
+  background-color: black;
+}
+.btn {
+  color: white !important;
+  font-size: var(--font-medium) !important;
+}
+/* ONBOARDING STYLES */
+@media (min-width: 320px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .grid-img,
+  .grid-form {
+    grid-row: 1;
+    grid-column: 1;
+  }
+}
+@media (min-width: 768px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-form {
+    grid-row: 1;
+    grid-column: 2;
+  }
+  .form {
+    width: 60%;
+  }
+}
+
+.grid-form {
+  display: grid;
+  place-items: center;
+}
+.grid-img {
+  background-image: url('/client/assets/sample.jpg');
+  background-size: 100% 100%;
+}
+.guidelines li {
+  margin-bottom: 10px;
+}
+/* ABOUT STYLES */
+.team {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+@media (min-width: 540px) {
+  .team {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1020px) {
+  .team {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+/* INDEX STYLES */
+
+/* navbar styles */
+.un-nav {
+  background-color: #d9dffc !important;
+  color: var(--dark-blue);
+}
+
+.logo-text {
+  font-weight: 500;
+  font-size: var(--font-large);
+  color: var(--font-color) ;
+  font-family: var(--font-roboto);
+}
+.text-style{
+  font-size: 18px;
+  color: var(--font-color);
+
+}
+.un-link {
+  border: 1px solid #fd7702!important;
+  border-radius: 5px;
+  color: var(--font-color) !important;
+}
+
+.update-profile__img {
+  width: 20px;
+  /* height: 16px; */
+}
+
+/* header styles */
+.header-img {
+  width: 664px;
+  height: 484px;
+}
+
+.header-cta {
+  background: var(--light-blue);
+  max-width: 270px;
+}
+
+/* search code styles section  */
+.search-code__box {
+  width: 500px;
+  border: 1px solid #888f9f;
+  border-radius: 5px;
+}
+
+.search-code > p {
+  color: var(--dark-blue);
+}
+
+.search-code__input {
+  outline: none;
+  border: none;
+}
+
+/* search code items styles */
+.search-code__items {
+  margin: 0 auto !important;
+}
+
+.top-content h5 {
+  font-size: 17px;
+  color: var(--dark-blue);
+}
+
+.search-code__card {
+  border: 1px solid #888f9f;
+}
+
+.downlod-icon {
+  width: 12px;
+}
+
+/* media queries */
+@media (min-width: 992px) {
+  .search-code__items {
+    padding-left: 4rem;
+  }
+}
+/* // Medium devices (tablets, 768px and up) */
+
+/* // Small devices (landscape phones, 576px and up) */
+/* @media (min-width: 576px) {
+
+} */
+
+@media (max-width: 100px) {
+  .search-code__box {
+    width: 90% !important;
+  }
+
+  .search-code__card {
+    margin: 0;
+  }
+
+  .search-code__box {
+    width: 500px;
+    border: 1px solid black !important;
+    border-radius: 5px;
+  }
+}
