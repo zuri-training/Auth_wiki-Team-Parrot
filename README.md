@@ -8,7 +8,9 @@ This is a solution to the [Project Phase , Milestone 1](https://w2pp.zuriboard.c
 - [Autheticated Users](#Autheticated-Users)
   - [Un-Authenticated-users](#Un-Authenticated-users) 
   - [Database-Schema](#Database-Schema) 
--[TOOLS](#TOOLS)
+  
+- [TOOLS](#TOOLS)
+- [Team Members](#Meet-Our-Team)
 - [Author](#Author)
 - [Acknowledgments](#Acknowledgments)
 
@@ -83,6 +85,27 @@ Comments has a one to many  relationships with code_snippets
 - **Pen**
 - **Paper**
 
+
+## Meet Our Team
+
+1. Rukayat Lamidi -- Product Design
+2. Bright Uwaoma -- Product Design
+3. Margaret Ekerendu -- Product Design
+4. Ebubechukwu Ijezie-- Product Design
+5. Ali Abdul-Quadir --  Product Design
+6. Ige Jide  -- Product design
+7. Loveth Iniovoghare -- Product Design
+8. Damilola Bilewu -- Product Design
+9. Dorcas Abraham -- Product Design
+10. Akinde Oluwadamilola -- Product Design
+11. Oluwatimilehin Erinle -- Full stack Developer (Python)
+12. Oluwaseun Akanji -- FullStack Developer (Python)
+13. Khadija Danhassan - Fullstack Python
+14. Onokwakpor Oghenekparobo -- Frontend
+15. Francis Chukwuoma -- Backend Python
+16. Oyepitan Fortune --Backend Python
+17. Henry Ugwu -- Full stack python
+18. Morah Chukwuemeka - Full stack python
 
 ## Author
 
