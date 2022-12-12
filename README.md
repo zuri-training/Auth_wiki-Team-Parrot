@@ -75,7 +75,7 @@ Library has a one to many  relationships with code_snippet and comments
 
 Comments has a one to many  relationships with code_snippets
 
-![](./assets//img.jpeg)
+![](./auth_wiki/account/static/img/img.jpeg)
 ## TOOLS
 
 - **Figma**
