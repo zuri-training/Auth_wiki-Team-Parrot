@@ -88,24 +88,24 @@ Comments has a one to many  relationships with code_snippets
 
 ## Meet Our Team
 
-1. Rukayat Lamidi -- Product Design
-2. Bright Uwaoma -- Product Design
-3. Margaret Ekerendu -- Product Design
-4. Ebubechukwu Ijezie-- Product Design
-5. Ali Abdul-Quadir --  Product Design
-6. Ige Jide  -- Product design
-7. Loveth Iniovoghare -- Product Design
-8. Damilola Bilewu -- Product Design
-9. Dorcas Abraham -- Product Design
-10. Akinde Oluwadamilola -- Product Design
-11. Oluwatimilehin Erinle -- Full stack Developer (Python)
-12. Oluwaseun Akanji -- FullStack Developer (Python)
-13. Khadija Danhassan - Fullstack Python
-14. Onokwakpor Oghenekparobo -- Frontend
-15. Francis Chukwuoma -- Backend Python
-16. Oyepitan Fortune --Backend Python
-17. Henry Ugwu -- Full stack python
-18. Morah Chukwuemeka - Full stack python
+- Rukayat Lamidi -- Product Designer
+- Bright Uwaoma -- Product Designer
+- Margaret Ekerendu -- Product Designer
+- Ebubechukwu Ijezie-- Product Designer
+- Ali Abdul-Quadir --  Product Designer
+- Ige Jide  -- Product designer
+- Loveth Iniovoghare  -- Product Designer
+- Damilola Bilewu -- Product Designer
+- Dorcas Abraham -- Product Designer
+- Akinde Oluwadamilola -- Product Designer
+- Oluwatimilehin Erinle -- Full stack Developer (Python)
+- Oluwaseun Akanji -- FullStack Developer (Python)
+- Khadija Danhassan - FullStack Developer (Python)
+- Onokwakpor Oghenekparobo -- Frontend Developer
+- Francis Chukwuoma -- Backend Developer (Python)
+- Oyepitan Fortune --Backend Developer (Python)
+- Henry Ugwu -- FullStack Developer (Python)
+- Morah Chukwuemeka - FullStack Developer (Python)
 
 ## Author
 
