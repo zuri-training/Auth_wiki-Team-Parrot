@@ -45,16 +45,31 @@
                 <a class="nav-link" href="#">DOCUMENTATION</a>
               </li>
             </ul>
+
+            {% if user.is_authenticated %}
+
+            <div class="me-4">
+              <a href="{% url 'account:logout' %}" class="btn btn-warning un-link">
+               Log out
+              </a>
+            </div>
+
+            {% else %}
+
+            <div class="me-4">
+              <a href="{% url 'account:login' %}" class="btn btn-outline-warning un-link">
+               Sign In
+              </a>
+            </div>
+
+            <div>
+              <a href="{% url 'account:register' %}" class="btn un-link btn-warning">Sign Up</a>
+            </div>
+
+            {% endif %}
+
             <div class="d-flex">
-              <div class="me-4">
-                <a href="{% url 'account:login' %}" class="btn btn-outline-warning un-link">
-                 Sign In
-                </a>
-              </div>
   
-              <div>
-                <a href="{% url 'account:register' %}" class="btn un-link btn-warning">Sign Up</a>
-              </div>
   
               <!-- Auth users -->
               <!-- <div>

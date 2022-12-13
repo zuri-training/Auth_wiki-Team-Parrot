@@ -29,9 +29,9 @@ urlpatterns = [
     
     #path("logout/",authentication_views.LogoutView.as_view(template_name='account/logout.html'),name='logout'),
     
-    path('profile/',views.profile, name='profile'),
+    path('profile/', views.profile, name='profile'),
     
-    path('createprofile/',views.Editprofile, name='createprofile'),
+    path('updateprofile/',views.Editprofile, name='createprofile'),
     path("password_reset", views.password_reset_request, name="password_reset")
 
     
