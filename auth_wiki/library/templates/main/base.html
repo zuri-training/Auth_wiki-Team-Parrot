@@ -17,9 +17,6 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
-
-    
-
     <title> {% block page_title %} {% endblock %} </title>
   </head>
 
@@ -27,14 +24,17 @@
     <!-- note: this page is for unauthenticated users -->
     <!-- navbar -->
 
+
+
     <nav class="navbar navbar-expand-lg un-nav py-3">
       <div class="container-fluid">
         <div class="nav-logo pl-5">
-          <a class="navbar-brand" href="{% url 'home' %}"
+          <a class="navbar-brand" href="{% url 'account:home' %}"
             ><span><img src="{% static 'main/img/head.png'%}" alt="logo-head" /></span>
             <span class="logo-text">AUTH-WIKI</span></a
           >
         </div>
+
         <button
           class="navbar-toggler"
           type="button"
@@ -47,27 +47,54 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-auto">
+          <ul class="navbar-nav me-auto mb-2 mt-3 mt-lg-0 mb-lg-0 ms-lg-auto">
             <li class="nav-item active text-style">
-              <a class="nav-link" href="{% url 'about' %}">About</a>
+              <a class="nav-link" href="{% url 'library:about' %}">About</a>
             </li>
             <li class="nav-item text-style">
-              <a class="nav-link" href="{% url 'faq' %}">Faqs</a>
+              <a class="nav-link" href="{% url 'library:faq' %}">Faqs</a>
             </li>
             <li class="nav-item text-style">
-              <a class="nav-link" href="{%url 'library'%}">Library</a>
+              <a class="nav-link" href="{%url 'library:library'%}">Library</a>
             </li>
-          </ul>
-          <div class="d-flex">
-            <div class="me-4">
-              <a href="{% url 'account:login' %}" class="btn btn-outline-warning un-link">
-               Sign In
-              </a>
-            </div>
 
-            <div>
-              <a href="{% url 'account:register' %}" class="btn un-link btn-warning">Sign Up</a>
-            </div>
+            {% if user.is_authenticated %}
+
+
+              <li class="nav-item text-style d-block d-lg-none ">
+                <a class="nav-link" href="{% url 'account:profile' %}">Profile</a>
+              </li>
+    
+              <li class="nav-item text-style d-block d-lg-none ">
+                <a class="nav-link" href="{% url 'account:logout' %}">Log Out</a>
+              </li>
+            
+            {% endif %}
+
+          </ul>
+
+          {% if user.is_authenticated %}
+
+            <div class="d-flex">
+              <div class="me-4">
+                <a href="{% url 'account:logout' %}" class="btn btn-outline-warning un-link">
+                 Log Out
+                </a>
+              </div>
+              <div class="me-4">
+                <a href="{% url 'account:profile' %}" class="btn btn-outline-warning un-link">
+                {{user.username}}'s Profile
+                </a>
+              </div>
+            {% else %}
+  
+              <div>
+                <a href="{% url 'account:register' %}" class="btn un-link btn-warning">Sign Up</a>
+              </div>
+              <div>
+                <a href="{% url 'account:login' %}" class="btn un-link btn-warning">Log In</a>
+              </div>
+            {% endif %}
 
             <!-- Auth users -->
             <!-- <div>
@@ -83,6 +110,8 @@
       </div>
     </nav>
 
+  
+
 
     {% block content %}
 
@@ -90,29 +119,9 @@
 
 
     <footer class="mt-5">
-        <div class="bg-light-grey py-4">
-            <div class="d-flex justify-content-between align-items-center container">
-            <div>
-                <a href="#home">
-                <img src="./assets/head.png" alt="logo-head" />
-                <span class="logo-text">AUTH-WIKI</span>
-                </a>
-                <p class="mt-2">Zuri Team Parrot</p>
-            </div>
-
-            <div class="d-flex justify-content-around font-semibold">
-                <ul class="list-style-none">
-                <li>
-                    <a class="nav-link" href="#">ABOUT</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="#">FAQS</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="#">DOCUMENTATION</a>
-                </li>
-                </ul>
-            </div>
+        <div class="bg-light-grey py-2">
+            <div class="d-flex justify-content-center align-items-center container">
+                <p class="mt-2">&copy; 2022 Zuri Team Parrot</p>
             </div>
         </div>
     </footer>
