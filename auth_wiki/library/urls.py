@@ -1,6 +1,7 @@
 from django.urls import path 
 from library.views import *
 
+app_name = 'library'
 urlpatterns = [
     path('', home_view, name='home'),
     path('about/', about_view, name='about'),
