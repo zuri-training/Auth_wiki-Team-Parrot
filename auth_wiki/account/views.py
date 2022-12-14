@@ -49,12 +49,12 @@ def registeruser(request):
             login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             return redirect('account:login')
         messages.error(request, "Unsuccessful registration. Invalid information.")    
-            
+    
     form = NewUserForm()
     context={
         'register_form':form,
     }
-    return render(request,'signup.html', context)
+    return render(request,'signup.html',context)
 
 def loginuser(request):
 	if request.method == "POST":

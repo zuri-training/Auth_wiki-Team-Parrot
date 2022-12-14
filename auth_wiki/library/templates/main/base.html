@@ -24,6 +24,8 @@
     <!-- note: this page is for unauthenticated users -->
     <!-- navbar -->
 
+
+
     <nav class="navbar navbar-expand-lg un-nav py-3">
       <div class="container-fluid">
         <div class="nav-logo pl-5">
@@ -32,6 +34,7 @@
             <span class="logo-text">AUTH-WIKI</span></a
           >
         </div>
+
         <button
           class="navbar-toggler"
           type="button"
@@ -44,7 +47,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-auto">
+          <ul class="navbar-nav me-auto mb-2 mt-3 mt-lg-0 mb-lg-0 ms-lg-auto">
             <li class="nav-item active text-style">
               <a class="nav-link" href="{% url 'library:about' %}">About</a>
             </li>
@@ -54,6 +57,20 @@
             <li class="nav-item text-style">
               <a class="nav-link" href="{%url 'library:library'%}">Library</a>
             </li>
+
+            {% if user.is_authenticated %}
+
+
+              <li class="nav-item text-style d-block d-lg-none ">
+                <a class="nav-link" href="{% url 'account:profile' %}">Profile</a>
+              </li>
+    
+              <li class="nav-item text-style d-block d-lg-none ">
+                <a class="nav-link" href="{% url 'account:logout' %}">Log Out</a>
+              </li>
+            
+            {% endif %}
+
           </ul>
 
           {% if user.is_authenticated %}
@@ -92,6 +109,8 @@
         </div>
       </div>
     </nav>
+
+  
 
 
     {% block content %}
