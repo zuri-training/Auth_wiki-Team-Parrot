@@ -24,6 +24,8 @@
     <!-- note: this page is for unauthenticated users -->
     <!-- navbar -->
 
+
+
     <nav class="navbar navbar-expand-lg un-nav py-3">
       <div class="container-fluid">
         <div class="nav-logo pl-5">
@@ -32,6 +34,7 @@
             <span class="logo-text">AUTH-WIKI</span></a
           >
         </div>
+
         <button
           class="navbar-toggler"
           type="button"
@@ -44,7 +47,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-auto">
+          <ul class="navbar-nav me-auto mb-2 mt-3 mt-lg-0 mb-lg-0 ms-lg-auto">
             <li class="nav-item active text-style">
               <a class="nav-link" href="{% url 'about' %}">About</a>
             </li>
@@ -52,9 +55,70 @@
               <a class="nav-link" href="{% url 'faq' %}">Faqs</a>
             </li>
             <li class="nav-item text-style">
-              <a class="nav-link" href="{%url 'library'%}">Library</a>
+              <a class="nav-link" href="{% url 'library' %}">Library</a>
             </li>
+
+            {% if user.is_authenticated %}
+
+
+              <li class="nav-item text-style d-block d-lg-none ">
+                <a class="nav-link" href="{% url 'account:profile' %}">Profile</a>
+              </li>
+    
+              <li class="nav-item text-style d-block d-lg-none ">
+                <a class="nav-link" href="{% url 'account:logout' %}">Log Out</a>
+              </li>
+            
+            {% endif %}
+
           </ul>
+
+
+          {% if user.is_authenticated %}
+ 
+
+          <li class="nav-item dropdown d-none d-lg-block pe-5" style='list-style-type: none'>
+            <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+              {% if user.profile.first_name %}
+                <div> <img scr='{{user.profile.image.url}}' alt='' class='rounded-circle' width='50px' height='50px'> </div>
+
+              {% else %}
+
+              <div class='profile-circle'> <strong class='text-center text-white'> {{user.username|first}} </strong> </div>
+
+
+              {% endif %}
+              
+            </a>
+            <ul class="dropdown-menu" style='left: -250px; top: 60px'>
+              <li>
+                <a class="dropdown-item" href="{% url 'account:profile' %}" title={{user.username}}>
+                  <div class='d-flex justify-content-space-between align-items-center'>
+                    {% if user.profile.first_name %}
+                      <div> <img scr='{{user.profile.image.url}}' class='rounded-circle me-3' width='70px' height='70px'> </div>
+                      <div class='profile-content'> <strong class='d-block text-start text-black'> {{user.profile.last_name}} {{user.profile.first_name}} </strong> <small  style='color: #83878A;'> {{user.email}} </small> </div>
+                    {% else %}
+                      <div class='profile-circle me-3' style='padding: 15px 22px'> <strong class='text-center text-white'> {{user.username|first}} </strong> </div>
+                      <div class='profile-content'> <small>Logged in as,</small> <strong class='d-block text-start text-black'> {{user.username}} </strong> <small  style='color: #83878A;'> {{user.email}} </small> </div>
+      
+                    {% endif %}
+
+                  </div>
+                </a>
+              </li>
+              <hr>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="{% url 'account:logout' %}">Logout</a></li>
+            </ul>
+          </li>
+  
+          {% endif %}
+          
+
+          {% if not user.is_authenticated %}
+
           <div class="d-flex">
             <div class="me-4">
               <a href="{% url 'account:login' %}" class="btn btn-outline-warning un-link">
@@ -65,6 +129,8 @@
             <div>
               <a href="{% url 'account:register' %}" class="btn un-link btn-warning">Sign Up</a>
             </div>
+
+          {% endif %}
             <!-- Auth users -->
             <!-- <div>
               <a href="#" class="btn btn-warning">
@@ -78,6 +144,8 @@
         </div>
       </div>
     </nav>
+
+  
 
 
     {% block content %}

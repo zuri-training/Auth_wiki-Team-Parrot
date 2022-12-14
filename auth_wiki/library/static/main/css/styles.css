@@ -146,6 +146,9 @@ label {
 }
 /* INDEX STYLES */
 
+
+
+
 /* navbar styles */
 .un-nav {
   background-color: #d9dffc !important;
@@ -172,6 +175,14 @@ label {
 .update-profile__img {
   width: 20px;
   /* height: 16px; */
+}
+
+/* Profile Dropdown */
+.profile-circle{
+  padding : 10px 17px;
+  /* height: 50px; */
+  border-radius: 50%;
+  background-color: #1C1D1F;
 }
 
 /* header styles */
