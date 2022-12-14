@@ -10,7 +10,7 @@ from account.models import *
 class Post(models.Model):
     title = models.TextField(max_length=500)
     description = models.TextField(max_length=700)
-    code_snippet = models.TextField(max_length=1000)
+    code_snippet = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
     author = models.ForeignKey(User, on_delete=models.CASCADE)

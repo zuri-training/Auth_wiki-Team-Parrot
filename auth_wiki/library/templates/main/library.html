@@ -31,44 +31,27 @@
       <!-- .search-code items -->
       <div class="search-code__items">
         <div class="grid gap-5">
+          {% for data in post_data%}
           <div class="w-100 search-code__card shadow-sm">
             <div class="d-flex flex-column p-4 box">
               <div>
-                <h5>AuthWiki-http-bearer</h5>
+                <h5>{{data.title}}</h5>
                 <p class="text-wrap w-75 text-grey">
-                  HTTP Bearer authentication codes for Auth-Wiki
+                  {{data.description}}
                 </p>
               </div>
-
+ 
               <div class="font-bold">
                 <img
                   class="img-responsive downlod-icon"
                   src="./assets/download.png"
                   alt="download-icon"
                 />
-                <span>15,888 Downloads</span>
+                <span>{{data.numberofdownloads}} Downloads</span>
               </div>
             </div>
           </div>
-          <div class="w-100 search-code__card shadow-sm">
-            <div class="d-flex flex-column p-4 box">
-              <div>
-                <h5>AuthWiki-http-bearer</h5>
-                <p class="text-wrap w-75 text-grey">
-                  HTTP Bearer authentication codes for Auth-Wiki
-                </p>
-              </div>
-
-              <div class="font-bold">
-                <img
-                  class="img-responsive downlod-icon"
-                  src="./assets/download.png"
-                  alt="download-icon"
-                />
-                <span>15,888 Downloads</span>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </main>
