@@ -22,22 +22,26 @@ def home(request):
     return render(request, 'main/index.html')
 
 def register(request):
-    if request.method=='POST':
-        form = NewUserForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('library')
+	if request.user.is_authenticated:
+		return redirect('/')
+	if request.method=='POST':
+		form = NewUserForm(request.POST)
+		if form.is_valid():
+			user = form.save()
+            # login(request, user)
+			return redirect('account:login')
 
-        return HttpResponse("Unsuccessful registration. Invalid information.")
+		return HttpResponse("Unsuccessful registration. Invalid information.")
             
-    form = NewUserForm()
-    context={
-        'register_form':form,
-    }
-    return render(request,'signup.html', context)
+	form = NewUserForm()
+	context={
+		'register_form':form,
+	}
+	return render(request,'signup.html', context)
 
 def userlogin(request):
+	if request.user.is_authenticated:
+		return redirect('/')
 	if request.method == "POST":
 		form = AuthenticationForm(request, data=request.POST)
 		if form.is_valid():
