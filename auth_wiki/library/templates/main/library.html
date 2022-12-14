@@ -75,4 +75,56 @@
       </div>
     </main>
 
+    <!-- Post -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 card mb-4  mt-3 left  top">
+          <div class="card-body">
+            <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
+            <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
+            <p class="card-text ">{{ post.content | safe }}</p>
+          </div>
+        </div>
+
+        <div class="col-md-8 card mb-4  mt-3 ">
+          <div class="card-body">
+
+            <!-- comments -->
+
+            <h2>{{ comments.count }} comments</h2>
+
+            {% for comment in comments %}
+            <div class="comments" style="padding: 10px;">
+              <p class="font-weight-bold">
+                {{ comment.user }}
+                <span class=" text-muted font-weight-normal">
+                  {{ comment.created_on }}
+                </span>
+              </p>
+              {{ comment.content | linebreaks }}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="col-md-8 card mb-4  mt-3 ">
+          <div class="card-body">
+            {% if new_comment %}
+            <div class="alert alert-success" role="alert">
+              Your comment is awaiting moderation
+            </div>
+            {% else %}
+            <h3>Leave a comment</h3>
+            {{ comment_form.as_p }}
+            <form method="post" style="margin-top: 1.3em;">
+              {% csrf_token %}
+              <textarea name="comment" id="comment" cols="30" rows="10"></textarea><br>
+              <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+            </form>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
     {% endblock %}
