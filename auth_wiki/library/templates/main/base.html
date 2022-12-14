@@ -27,7 +27,7 @@
     <nav class="navbar navbar-expand-lg un-nav py-3">
       <div class="container-fluid">
         <div class="nav-logo pl-5">
-          <a class="navbar-brand" href="{% url 'home' %}"
+          <a class="navbar-brand" href="{% url 'account:home' %}"
             ><span><img src="{% static 'main/img/head.png'%}" alt="logo-head" /></span>
             <span class="logo-text">AUTH-WIKI</span></a
           >
@@ -46,25 +46,39 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-auto">
             <li class="nav-item active text-style">
-              <a class="nav-link" href="{% url 'about' %}">About</a>
+              <a class="nav-link" href="{% url 'library:about' %}">About</a>
             </li>
             <li class="nav-item text-style">
-              <a class="nav-link" href="{% url 'faq' %}">Faqs</a>
+              <a class="nav-link" href="{% url 'library:faq' %}">Faqs</a>
             </li>
             <li class="nav-item text-style">
-              <a class="nav-link" href="{%url 'library'%}">Library</a>
+              <a class="nav-link" href="{%url 'library:library'%}">Library</a>
             </li>
           </ul>
-          <div class="d-flex">
-            <div class="me-4">
-              <a href="{% url 'account:login' %}" class="btn btn-outline-warning un-link">
-               Sign In
-              </a>
-            </div>
 
-            <div>
-              <a href="{% url 'account:register' %}" class="btn un-link btn-warning">Sign Up</a>
-            </div>
+          {% if user.is_authenticated %}
+
+            <div class="d-flex">
+              <div class="me-4">
+                <a href="{% url 'account:logout' %}" class="btn btn-outline-warning un-link">
+                 Log Out
+                </a>
+              </div>
+              <div class="me-4">
+                <a href="{% url 'account:profile' %}" class="btn btn-outline-warning un-link">
+                {{user.username}}'s Profile
+                </a>
+              </div>
+            {% else %}
+  
+              <div>
+                <a href="{% url 'account:register' %}" class="btn un-link btn-warning">Sign Up</a>
+              </div>
+              <div>
+                <a href="{% url 'account:login' %}" class="btn un-link btn-warning">Log In</a>
+              </div>
+            {% endif %}
+
             <!-- Auth users -->
             <!-- <div>
               <a href="#" class="btn btn-warning">

@@ -1,4 +1,21 @@
 from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect
+from.forms import NewUserForm 
+from django.contrib.auth import login, authenticate, logout
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from .models import Profile
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import AuthenticationForm
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
+from django.contrib.auth.forms import PasswordResetForm
+from django.contrib.auth.models import User
+from django.template.loader import render_to_string
+from django.db.models.query_utils import Q
+from django.utils.http import urlsafe_base64_encode
+from django.contrib.auth.tokens import default_token_generator
+from django.utils.encoding import force_bytes
 from .forms import *
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
@@ -21,15 +38,17 @@ from django.utils.encoding import force_bytes
 def home(request):
     return render(request, 'main/index.html')
 
-def register(request):
+def registeruser(request):
     if request.method=='POST':
-        form = NewUserForm(request.POST)
+        form=NewUserForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
-            return redirect('library')
-
-        return HttpResponse("Unsuccessful registration. Invalid information.")
+            #username = form.cleaned_data.get('username')
+            #login(request, user)
+            messages.success(request, "Registration successful." )
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+            return redirect('account:login')
+        messages.error(request, "Unsuccessful registration. Invalid information.")    
             
     form = NewUserForm()
     context={
@@ -37,7 +56,7 @@ def register(request):
     }
     return render(request,'signup.html', context)
 
-def userlogin(request):
+def loginuser(request):
 	if request.method == "POST":
 		form = AuthenticationForm(request, data=request.POST)
 		if form.is_valid():
@@ -46,9 +65,8 @@ def userlogin(request):
 			user = authenticate(username=username, password=password)
 			if user is not None:
 				login(request, user)
-				messages.success(request, f"You are now logged in as {username}.")
-				return redirect("/")
-                
+				messages.info(request, f"You are now logged in as {username}.")
+				return redirect("library:home")
 			else:
 				return render(request, "login.html", context={"login_form":form, 'status':'error', 'alert_msg': 'User was not found try registering'})
 				
@@ -59,7 +77,8 @@ def userlogin(request):
     
 	return render(request, "login.html", context={"login_form":form})
 
-def userlogout(request):
+
+def logoutuser(request):
 	logout(request)
 	messages.info(request, "You have successfully logged out.")
 	return redirect('account:login')
@@ -68,28 +87,49 @@ def userlogout(request):
  
 	# return redirect("library")
 
-@login_required(login_url='account:register')
-def profile(request):
-    return render(request, "profile.html")   
+@login_required
+def profileuser(request):
+    return render(request,"profile.html")   
+fields=['user','first_name','last_name','gender','image','contact_number', 'created_on', 'updated_on']
 
-
-@login_required(login_url='account:register')
-def Editprofile(request):
-	if request.method=='POST':
-		first_name = request.POST.get('first_name')
-		last_name = request.POST.get('last_name')
-		gender = request.POST.get('gender')
-		contact_number = request.POST.get('contact_number')
+def editprofileuser(request):
+    if request.method=='POST':
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        gender = request.POST.get('gender')
+        contact_number = request.POST.get('contact_number')
         #created_on = request.POST.get('created_on')
         #updated_on = request.POST.get('updated_on')
-		image = request.FILES['upload']
-		user = request.user
-		profile = Profile(user=user, image=image, contact_number=contact_number,first_name=first_name, last_name=last_name, gender=gender)
+        image = request.FILES['upload']
+        user = request.user
+        profile = Profile(user=user, image=image, contact_number=contact_number,first_name=first_name, last_name=last_name, gender=gender)
         #created_on=created_on, updated_on=updated_on)
-		profile.save()
-		return redirect("account:profile")
+        profile.save()
+        return redirect("account:profile")
         
-	return render(request,'create_profile.html')
+    return render(request,'createprofile.html')
+   
+
+
+# @login_required
+# def Editprofile(request):
+#     if request.method == 'POST':
+#         user_form = UpdateUserForm(request.POST, instance=request.user)
+#         profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
+#         print(profile_form)
+#         if user_form.is_valid() and profile_form.is_valid():
+#             user_form.save()
+#             profile_form.save()
+#             messages.success(request, 'Your profile is updated successfully')
+#             return redirect('profile.html')
+#     else:
+#         user_form = UpdateUserForm(instance=request.user)
+#         profile_form = UpdateProfileForm(instance=request.user.profile)
+#         print('errorr')
+#     return render(request, 'create_profile.html', {'user_form': user_form, 'profile_form': profile_form})
+
+
+
 
 @login_required(login_url='account:register')
 def password_reset_request(request):
@@ -118,4 +158,4 @@ def password_reset_request(request):
 						return HttpResponse('Invalid header found.')
 					return redirect ("/password_reset/done/")
 	password_reset_form = PasswordResetForm()
-	return render(request=request, template_name="setpassword.html", context={"password_reset_form":password_reset_form})
+	return render(request=request, template_name="account/password_reset.html", context={"password_reset_form":password_reset_form})

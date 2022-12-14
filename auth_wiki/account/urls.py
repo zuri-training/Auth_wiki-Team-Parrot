@@ -19,20 +19,20 @@ from django.contrib.auth import views as authentication_views
 app_name = 'account'
 urlpatterns = [
     path('', views.home, name='home'),
-    path('register/',views.register, name='register'),
+    path('register/',views.registeruser, name='register'),
     
-    path('login/', views.userlogin, name='login'),
+    path('login/', views.loginuser, name='login'),
     #path("logout", views.userlogout, name= "logout"),
     
     # path("login/",authentication_views.LoginView.as_view(template_name='users/login.html'),name='login'),
-    path('logout/', views.userlogout, name='logout'),
+    path('logout/', views.logoutuser, name='logout'),
     
     #path("logout/",authentication_views.LogoutView.as_view(template_name='account/logout.html'),name='logout'),
     
-    path('profile/', views.profile, name='profile'),
+    path('profile/',views.profileuser, name='profile'),
     
-    path('updateprofile/',views.Editprofile, name='createprofile'),
-    path("password_reset", views.password_reset_request, name="password_reset")
+    path('createprofile/',views.editprofileuser, name='createprofile'),
+    path("password_reset", views.password_reset_request, name="password_reset"),
 
     
     

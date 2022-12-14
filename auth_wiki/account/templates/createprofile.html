@@ -1,9 +1,8 @@
 {% extends 'base.html'  %} 
-{% block title %} Auth Wiki - Sign Up {% endblock %}
-{% load widget_tweaks %}
+{% block title %} Auth Wiki - Edit Profile {% endblock %}
+<!--{% load widget_tweaks %}-->
 
 {% block content %} 
-
 
 <div class="container-xl px-4 mt-4">
     <!-- Account page navigation-->
@@ -15,18 +14,7 @@
         <div class="col-xl-4">
             <!-- Profile picture card-->
             <div class="card mb-4 mb-xl-0">
-                {% comment %} <div class="card-header">Profile Picture</div>
-                <div class="card-body text-center">
-                    <!-- Profile picture image-->
-                    <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-                    <!-- Profile picture help block-->
-                    <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
-                    <!-- Profile picture upload button-->
-                    <div class="">
-                        <label for="">Upload Profile Image</label>
-                        <input class="py-2" placeholder="upload a clear profile image" type="file" accept="image/*"  name="upload" id="upload">
-                    </div> {% endcomment %}
-                    {% comment %} <button class="btn btn-primary" type="button">Upload new image</button> {% endcomment %}
+
                 </div>
             </div>
         </div>
@@ -87,26 +75,10 @@
                             <label class="small mb-1" for="">Contact Number</label>
                             <input class="form-control" placeholder="08100000000" type="text"  value= ""  name="contact_number" id="contact_number">
                         </div>
-                        {% comment %} <div class="mb-3">
-                            <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                            <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="name@example.com">
-                        </div>
-                        <!-- Form Row-->
-                        <div class="row gx-3 mb-3">
-                            <!-- Form Group (phone number)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputPhone">Phone number</label>
-                                <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="555-123-4567">
-                            </div>
-                            <!-- Form Group (birthday)-->
-                            <div class="col-md-6">
-                                <label class="small mb-1" for="inputBirthday">Birthday</label>
-                                <input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday" value="06/10/1988">
-                            </div>
-                        </div> {% endcomment %}
+ 
                         <!-- Save changes button-->
                         <input class="btn btn-success" name="Add" value="Save Changes" type="submit">
-                        {% comment %} <button class="btn btn-primary" type="button">Save changes</button> {% endcomment %}
+ 
                     </form>
                 </div>
             </div>
@@ -114,9 +86,11 @@
     </div>
 </div>
 
+
 <!----
 <form class=" m-10" method="post" enctype="multipart/form-data" >
     {% csrf_token %}
+
     <div class="col-lg-8">
         <div class="card mb-4">
           <div class="card-body">
@@ -140,6 +114,7 @@
             <option value="others">Others</option>
             <option value="choose not to say">Choose not to say</option>
             <--<option value="select gender" selected>Select Gender</option>--
+
         </select>
         <--<input class=""  type="text"  value= "first_name"  name="first_name" id="first_name">--
     </div>
@@ -155,3 +130,4 @@
 
 
 {% endblock content %}
+
