@@ -1,0 +1,83 @@
+{% extends 'main/base.html' %}
+
+{% block page_title %} About {% endblock %}
+
+{% block content %}
+
+<div class='container doc-color' style='margin-top:10%;'>
+    <div class='row'>
+        <div class='col-3'>
+            <div id="llist-documentation" class="content-group">
+                <a class="list-group-item list-group-item-action" href="#list-item-1">Project Summary</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-2">Core User Needs</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-3">Product Goals</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-4">Design System</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-5">Constraints</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-6">Scope</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-7">Research Insights</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-8">Key Decisions</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-9">Notes</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-10">Relevant Documents</a>
+            </div>
+        </div>
+        <div class='col-9 px-5'>
+            <h3 class='text-center'>Auth-Wiki-Documentation</h3>
+            <h6 class='text-center'>Acess Documentation Here</h6>
+            <div class='mt-5' data-bs-spy="scroll" data-bs-target="#list-documentation" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+                <p id="list-item-1">
+                    Auth-Wiki is a library authentication application that allows users to view different authentication
+                    code sample and interact . Users can easily access/download our code samples or be able to view example usage.</p>
+                <p> The users can make use of the library code when creating an authentication code or when browsing through the library</p>
+                <p> At Auth-Wiki, guests are not also left out as they can easily view , interact with documentation and register to contribute</p>
+                <p> Though , one of the cons of being a guest is the inability to download code while on the other hand , the registered users have full access , can interact easily , make contributions
+                    , able to view example usage and download code samples. </p>    
+                
+                <h5 id="list-item-2">Need 1</h5>
+                <p> Web Development today and even from the onset requires some form of authentication to ensure web security
+                    and user privacy on the internet. Also , the occurrence of cyber related crimes and security issues have been 
+                    growing at an  alarming rate over the past few decades , Consequently , user authentication , even user authorization
+                    has to be placed at the zenith of our piorities when building web applications and APIS.
+                </p>
+                <h5>Need 2</h5>
+                <p>
+                    More so , most developers are now adopting the practice of providing user authentication options , some 
+                    of which affords the users to be authenticated across different platforms using just one profile or account.
+                    This implies that the user registration and authentication process will become less laborious and in the long run,
+                    provide unified authentication system.
+                </p>
+                <p>
+                    Conclusively , to cater for the needs of developers who want to build and set up authentication systems by themselves 
+                    or build on the existing ones already provided by their framework , they need a platform where they can source reusable code snippets,
+                    modules or packages . Due to these reasons , we have decided to take on the challenge and create a line of actions to solve these problems
+                    within the timeframe given . Auth-Wiki would be acessible on the web.
+                </p>
+                <p id="list-item-3">Goal 1</p>
+                <p>Since authentication has proven to be ne</p>
+                <p></p>
+                <p id="list-item-4">Design System</p>
+                <p id="list-item-5">Constraints</p>
+                <p id="list-item-6">Scope</p>
+                        <ul>
+                            <li>Email</li>
+                            <li>Username</li>
+                            
+                        </ul>
+                    <p> Not in Scope </p>
+                        <ul>
+                            <li>Date of Birth</li>
+                            <li>Phone Number</li>                            
+                        </ul>
+                <p id="list-item-7">Research Insights</p>
+                <p>...</p>
+                <p id="list-item-8">Key Decisions</p>
+                <p>...</p>
+                <p id="list-item-9">Notes</p>
+                <p>...</p>
+                <p id="list-item-10">Relevant Documents</p>
+                <p>...</p>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
