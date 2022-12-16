@@ -60,6 +60,9 @@
               <a class="nav-link" href="{% url 'faq' %}">Faqs</a>
             </li>
             <li class="nav-item text-style">
+              <a class="nav-link" href="{% url 'documentations' %}">Documentations</a>
+            </li>    
+            <li class="nav-item text-style">
               <a class="nav-link" href="{% url 'library' %}">Library</a>
             </li>
 
@@ -85,15 +88,13 @@
           <li class="nav-item dropdown d-none d-lg-block pe-5" style='list-style-type: none'>
             <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-              {% if user.profile.first_name %}
-                <div> <img scr='{{user.profile.image.url}}' alt='' class='rounded-circle' width='50px' height='50px'> </div>
+              <!-- {% if user.profile %} -->
+                <div> <img scr='{% static "img/head.png" %}' alt='not found' class='rounded-circle' width='50px' height='50px'> </div>
+              <!-- {% else %}
 
-              {% else %}
+              <div class='profile-circle'> <strong class='text-center text-white'> {{user.username|first}} </strong> </div> -->
 
-              <div class='profile-circle'> <strong class='text-center text-white'> {{user.username|first}} </strong> </div>
-
-
-              {% endif %}
+              <!-- {% endif %} -->
               
             </a>
             <ul class="dropdown-menu" style='left: -250px; top: 60px'>
@@ -160,7 +161,7 @@
     {% endblock %}
 
 
-    <footer class="mt-5 d-block" style='position: relative; bottom:0;'>
+    <footer class="d-block" style='position: relative; bottom:0; margin-top:100px;'>
         <div class="bg-light-grey py-2">
             <div class="d-flex justify-content-center align-items-center container">
                 <p class="mt-2">&copy; 2022 Zuri Team Parrot</p>

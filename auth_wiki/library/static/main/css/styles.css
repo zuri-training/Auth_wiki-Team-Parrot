@@ -349,9 +349,16 @@ label {
 }
 
 /* Documentations */
+.side-nav{
+  /* width: 100%;l */
+  /* background-color: red; */
+  height: 400px;
+  overflow-y: scroll;
+}
 
 .content-group{
-  border-right: 1px solid var(--dark-blue);
+  /* border-right: 1px solid var(--dark-blue); */
+  /* bottom: 10px; */
 }
 
 .content-group a{
@@ -359,3 +366,7 @@ label {
   color: var(--dark-blue)
 }
 
+.content-group a.active{
+  color: var(--dark-blue);
+  text-decoration: underline !important;
+}
