@@ -275,3 +275,12 @@ a {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+select#gender option[value="male.png"] {
+  background-image:url('../static/img/female.png');   
+}
+
+select#gender option[value="female.jpg"] {
+  background-image:url('../static/img/female.jpg'); 
+  background-color: blue;  
+}

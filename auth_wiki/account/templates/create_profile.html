@@ -12,8 +12,8 @@
 <div class="container px-4 py-4 mt-4"   >
     <!-- Account page navigation-->
 
-    <form action='' method='POST'>
-
+    <form action='{% url "createprofile" %}' method='POST'>
+        {% csrf_token %}
         <!-- <input type='text' placeholder> -->
 
         <div class='row'>
@@ -23,13 +23,18 @@
             <div class='col-12 col-md-10'>
                 <label for='select-field d-block'> Change display picture </label>
                 <!-- <img src='{% static "img/head2.jpg" %}' > -->
+                
                 <select class="form-select mt-3" id='select-field' aria-label="Default select example">
 
                     <option selected>Choose Avatar</option>
-                    <option  style='background-image:url("{% static "img/male.png" %}")' value="1"> </option>
-                    <option style='background-image:url("{% static "img/female.jpg" %}")' value="2"> </option>
+                    <option  style='background-image:url("{% static "img/male.png" %}"); width:20px; height:30px;' value="male.png"> Male </option>
+                    <option style='background-image:url("{% static "img/female.jpg" %}")' value="female.jpg"> Female </option>
                     <option value="3">Three</option>
-                  </select>
+
+                </select>
+
+                <button class='btn btn-success mt-4 mx-auto'> Change </button>
+
             </div>
 
 
