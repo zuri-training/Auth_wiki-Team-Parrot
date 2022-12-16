@@ -1,1 +1,1 @@
-web: gunicorn auth_wiki.wsgi --log-file
+web: gunicorn auth_wiki.wsgi --log-file -
