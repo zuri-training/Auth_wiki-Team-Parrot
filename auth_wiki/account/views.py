@@ -22,26 +22,22 @@ def home(request):
     return render(request, 'main/index.html')
 
 def register(request):
-	if request.user.is_authenticated:
-		return redirect('/')
-	if request.method=='POST':
-		form = NewUserForm(request.POST)
-		if form.is_valid():
-			user = form.save()
-            # login(request, user)
-			return redirect('account:login')
+    if request.method=='POST':
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('library')
 
-		return HttpResponse("Unsuccessful registration. Invalid information.")
+        return HttpResponse("Unsuccessful registration. Invalid information.")
             
-	form = NewUserForm()
-	context={
-		'register_form':form,
-	}
-	return render(request,'signup.html', context)
+    form = NewUserForm()
+    context={
+        'register_form':form,
+    }
+    return render(request,'signup.html', context)
 
 def userlogin(request):
-	if request.user.is_authenticated:
-		return redirect('/')
 	if request.method == "POST":
 		form = AuthenticationForm(request, data=request.POST)
 		if form.is_valid():
@@ -63,14 +59,12 @@ def userlogin(request):
     
 	return render(request, "login.html", context={"login_form":form})
 
+@login_required(login_url='account:register')
 def userlogout(request):
 	logout(request)
 	messages.info(request, "You have successfully logged out.")
 	return redirect('account:login')
-	# forms = AuthenticationForm()
-	# return render(request, "login.html", context={"login_form":forms, 'status':'success', 'alert_msg': 'You have successfully logged out'})
- 
-	# return redirect("library")
+
 
 @login_required(login_url='account:register')
 def profile(request):
@@ -80,17 +74,13 @@ def profile(request):
 @login_required(login_url='account:register')
 def Editprofile(request):
 	if request.method=='POST':
-		first_name = request.POST.get('first_name')
-		last_name = request.POST.get('last_name')
-		gender = request.POST.get('gender')
-		contact_number = request.POST.get('contact_number')
-        #created_on = request.POST.get('created_on')
-        #updated_on = request.POST.get('updated_on')
 		image = request.FILES['upload']
 		user = request.user
-		profile = Profile(user=user, image=image, contact_number=contact_number,first_name=first_name, last_name=last_name, gender=gender)
-        #created_on=created_on, updated_on=updated_on)
+		# profile = Profile(user=user, image=image)
+		profile = Profile(user=user)
 		profile.save()
+        #created_on = request.POST.get('created_on')
+        #updated_on = request.POST.get('updated_on')
 		return redirect("account:profile")
         
 	return render(request,'create_profile.html')

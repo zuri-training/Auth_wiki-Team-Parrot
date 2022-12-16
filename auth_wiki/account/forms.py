@@ -8,10 +8,7 @@ from .models import *
 
 class NewUserForm(UserCreationForm):
     email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'class':'focus:outline-none','placeholder':'user@gmail.com'}))
-    # username = forms.CharField(required=True, widget=forms.TextInput(attrs={'class':'focus:outline-none','placeholder':'username'}))
-    # password1 = forms.CharField(required=True, widget=forms.PasswordInput(attrs={'class':'focus:outline-none'}))
-    # password2 = forms.CharField(required=True, widget=forms.PasswordInput(attrs={'class':'focus:outline-none',}))
-    
+  
     class Meta:
         model=User
         fields=["username","email","password1","password2"]
@@ -27,7 +24,8 @@ class NewUserForm(UserCreationForm):
 class ProfileForm(ModelForm):
     class Meta:
         model= Profile
-        fields=['user','first_name','last_name','gender','image','contact_number'] #'created_on', 'updated_on']
+        # fields=['user','image']
+        fields=['user']
         
 class UpdateUserForm(ModelForm):
     username = forms.CharField(max_length=100,
@@ -42,12 +40,9 @@ class UpdateUserForm(ModelForm):
 
 
 class UpdateProfileForm(ModelForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     image = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control-file'}))
-    first_name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    last_name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
-    gender = forms.ChoiceField(choices= GENDER_CHOICES)
-    # bio = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 5}))
-    contact_number = forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control'}))
+   
     class Meta:
         model= Profile
         fields = '__all__'
