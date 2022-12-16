@@ -21,11 +21,8 @@
         reactions. Users that have authenticated access can browse through the library, view and
         download code samples.
       </p>
-      <!-- <p class="w-75 pb-3">
-        On the other hand, unauthenticated users can view, interact and register to contribute,
-        downloading of codes is not available.
-      </p> -->
-      <a href="#" class="btn btn-primary mx-auto" role="button">Browse full library</a>
+
+      <a href="{%url 'library' %}" class="btn btn-primary mx-auto" role="button">Browse full library</a>
     </div>
   </div>
 </header>
@@ -35,10 +32,22 @@
   class="search-code container-fluid d-flex justify-content-center align-items-center py-5"
 >
   <div class="text-center">
-    <h3 class="font-bold">Search For Codes</h3>
-    <p class="font-semibold">Codes Available</p>
+    <!-- <h3 class="font-bold">Search For Codes</h3> -->
     <!-- search code input box -->
-    <div class="search-code__box d-flex py-1 ps-4 pe-3">
+    <div class="text-center">
+      <h3 class="font-bold">Search For Codes</h3>
+      <p class="font-semibold">Codes Available</p>
+
+      <form action='{% url "search" %}' method='GET'>
+        {% csrf_token %}
+        <input class="" type="search" name="q" id="" />
+        <button class='btn btn-dark'>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>  
+        </button>
+
+     </form>
+    </div>
+    <!-- <div class="search-code__box d-flex py-1 ps-4 pe-3">
       <span class="d-flex justify-content-center align-items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +60,7 @@
           <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
         </span>
       <input class="py-1 ps-4 w-100 search-code__input" type="search" name="" id="" />
-    </div>
+    </div> -->
   </div>
 </section>
 
