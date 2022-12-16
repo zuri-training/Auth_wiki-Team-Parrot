@@ -1,1 +1,1 @@
-web: gunicorn 'auth_wiki.wsgi'
+web: gunicorn auth_wiki/auth_wiki.wsgi
