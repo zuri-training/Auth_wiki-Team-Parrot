@@ -1,0 +1,293 @@
+{% extends 'main/base.html' %}
+
+{% block page_title %} About {% endblock %}
+
+{% block content %}
+
+<div class='container doc-color' style='margin-top:10%; margin-bottom:10%;'>
+    <div class='row'>
+        <div class='col-3 mb-5'>
+            <div id="list-documentation" class="content-group position-fixed side-nav pe-5">
+                <a class="list-group-item list-group-item-action" href="#list-item-1">Project Summary</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-2">Core User Needs</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-3">Product Goals</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-4">Design System</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-5">Constraints</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-6">Scope</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-7">Research Insights</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-8">Key Decisions</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-9">Notes</a>
+                <a class="list-group-item list-group-item-action" href="#list-item-10">Relevant Documents</a>
+            </div>
+        </div>
+        <div class='col-9 px-5'>
+            <h3 class='text-center'>Auth-Wiki-Documentation</h3>
+            <h6 class='text-center'>Acess Documentation Here</h6>
+            <div class='mt-5' data-bs-spy="scroll" data-bs-target="#list-documentation" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+                <p id="list-item-1">
+                    Auth-Wiki is a library authentication application that allows users to view different authentication
+                    code sample and interact . Users can easily access/download our code samples or be able to view example usage.</p>
+                <p> The users can make use of the library code when creating an authentication code or when browsing through the library</p>
+                <p> At Auth-Wiki, guests are not also left out as they can easily view , interact with documentation and register to contribute</p>
+                <p> Though , one of the cons of being a guest is the inability to download code while on the other hand , the registered users have full access , can interact easily , make contributions
+                    , able to view example usage and download code samples. </p>    
+                
+                <!-- Core User Needs -->
+                <div id="list-item-2" class='pt-5'>
+                <h4 class='mb-5'>Core User Needs</h4>
+                <h5>Need 1</h5>
+                <p> Web Development today and even from the onset requires some form of authentication to ensure web security
+                    and user privacy on the internet. Also , the occurrence of cyber related crimes and security issues have been 
+                    growing at an  alarming rate over the past few decades , Consequently , user authentication , even user authorization
+                    has to be placed at the zenith of our piorities when building web applications and APIS.
+                </p>
+                <h5>Need 2</h5>
+                <p>
+                    More so , most developers are now adopting the practice of providing user authentication options , some 
+                    of which affords the users to be authenticated across different platforms using just one profile or account.
+                    This implies that the user registration and authentication process will become less laborious and in the long run,
+                    provide unified authentication system.
+                </p>
+                <p>
+                    Conclusively , to cater for the needs of developers who want to build and set up authentication systems by themselves 
+                    or build on the existing ones already provided by their framework , they need a platform where they can source reusable code snippets,
+                    modules or packages . Due to these reasons , we have decided to take on the challenge and create a line of actions to solve these problems
+                    within the timeframe given . Auth-Wiki would be acessible on the web.
+                </p>
+
+                </div>
+
+
+                <div id="list-item-3" class='pt-5'>
+                    <h4 class='mb-5'>Product Goals</h4>   
+                    <h5>Goal 1</h5>
+                    <p>
+                    Since authentication has proven to be necessary in technology today, we have decided to not just build a library of authentication codes but a platform that gives users an exhaustive explanation on how to implement them. Authwiki is envisioned to be an inclusive and exhaustive library. So no programming language or framework is left out. Allowing it to serve a vast community of developers.
+                    </p>
+
+                    <h5>Goal 2</h5>
+                    <p>
+                        Also, knowing that not all authentication systems are on par with one another, authentication codes will have ratings which should give users an idea of how popular or functional they are. There will be a comment section under each authentication code detail so users can ask questions or give feedback on that specific code.
+                        Viewing from the non-functional aspect of things, we want to provide the best possible interface to present these codes and also make interacting with the library simple and intuitive by using modern design practices and techniques to produce an appealing user interface and top notch user experience.
+                    </p>
+
+                </div>
+
+
+                <div id="list-item-4" class='pt-5'>
+                    <h4 class='mb-5'>Design System</h4>   
+
+                    <h5>Design System Point 1</h5>
+                    <p>
+                        For this project we will be using the Laravel framework for backend development. The frontend development would use javascript and tentatively React for scripting, The markup would be written in HTML5 which would eventually be converted to ‘*.blade.php’ templates. Styling would be done using CSS3 and CSS frameworks like Bootstrap and Tailwind. Our design team would design wireframes, Lo-Fi and Hi-Fi pages for the pages below.
+                    </p>
+                     
+                
+                    <h5>Design System Point 2</h5>
+                    <p>
+                        In summary, we would be building a monolite laravel application.The following pages will be featured on the website;
+                        FEATURED PAGES
+                        <ol>
+                            <li class='mb-3'>
+                                Home/Landing page
+                                <ul>
+                                    <li>Navbar</li>
+                                    <li>Article(s)</li>
+                                    <li>Footer</li>
+                                </ul>
+                               
+                            </li>
+
+                            <li class='mb-3'>
+                                Documentation
+                                <ul>
+                                    <li>Sidebar</li>
+                                    <li>Body</li>
+                                    <li>Glossary</li>
+                                </ul>
+                            </li>
+
+                            <li class='mb-3'>
+                                Login options
+                                <ul>
+                                    <li>Username and password</li>
+                                    <li>Google account</li>
+                                    <li>Github account</li>
+                                </ul>
+                               
+                            </li>
+
+                            <li class='mb-3'>
+                                Register/Sign Up
+                                <ul>
+                                    <li>Name</li>
+                                    <li>Username</li>
+                                    <li>Email</li>
+                                    <li>Password</li>
+                                    <li>Alternatives</li>
+                                    <li>Google</li>
+                                    <li>Github</li>
+                                </ul>
+                            </li>
+
+                            <li class='mb-3'>
+                                Download page
+                            </li>
+
+                            <li class='mb-3'>
+                                Library pages
+                            </li>
+
+
+                        </ol>
+                    </p>
+
+
+                </div>
+
+                <div id="list-item-5" class='pt-5'>
+                    <h4 class='mb-5'>Constraints</h4> 
+                    
+                    <h5> Constraint 1 </h5>
+                    <p> 
+                        Users are only required to signup or register using their Google or github accounts.
+                    </p>
+
+                    <h5> Constraint 2 </h5>
+                    <p>
+                        After which they are given full access to the platform's resources.
+                    </p>
+                </div>
+                
+
+                <div id="list-item-6" class='pt-5'>
+                    <h4 class='mb-5'>Scope</h4> 
+                    
+                    <h5> Scope </h5>
+                    <ul>
+                        <li>Email</li>
+                        <li>Username</li>
+                        
+                    </ul>
+
+                    <h5> Not In Scope </h5>
+                    <ul>
+                        <li>Date of Birth</li>
+                        <li>Phone Number</li>                            
+                    </ul>
+                </div>
+
+
+                
+                <div id="list-item-7" class='pt-5'>
+                    <h4 class='mb-5'>Research Insights</h4> 
+                    
+                    <h5> Insight 1 </h5>
+                    <p>
+                        *Unauthenticated/Unregistered users have the permission to-
+                        *View basic info on the websites home and landing pages and other related documentation.
+                        *Unauthenticated users would not be permitted to like, comment or download unless authenticated. While unregistered users will be required to create an account to enjoy other privileges.
+                        
+                    </p>
+
+                    <h5> Insight 2 </h5>
+                    
+                    <p>
+                        *Authenticated users are given full access to the platform’s content. As an authenticated user:
+                        *You can view detailed info about the website.
+                        *You can like, comment and download code samples.
+                        *You can view code samples and links to code
+                        *You view implementations if available.
+                        *Ability to switch to dark mode - proposed
+                    </p>
+
+                   
+                </div>
+
+                <div id="list-item-8" class='pt-5'>
+                    <h4 class='mb-5'>Key Decisions</h4>
+                    
+                    <h5> Key Decision 1 </h5>
+                    
+                    <p>
+                    It’s important to document any key decisions made along the way in a project. This helps provide design rationale and is also helpful for anyone trying to follow along the project. Whenever a key decision is made, duplicate this section, document they decision made and why.
+                    </p>
+                    
+                    <h5> Key Decision 2 </h5>
+                    <p>
+                    In summary, we would be building a monolite laravel application.The following pages will be featured on the website;
+                    </p>
+                </div>
+
+
+                
+                <div id="list-item-9" class='pt-5'>
+                    <h4 class='mb-5'>Notes</h4> 
+                    
+                    <h5> Key Note 1 </h5>
+
+                    <ol>
+                        <li> Signup, Email confirmation and Login pages - minimum password length should be 6 characters including letters and symbols.
+                        </li>
+
+                        <li> 
+                            Documentation Page - in progress Content, Design, Markup, styling
+                            <ul>
+                                <li>Sidebar</li>
+                                <li>Glossary</li>
+                                <li>Body</li>
+                            </ul>
+                        </li>
+
+                    </ol>
+
+                    <h5> Key Note 2 </h5>
+
+                    <p>
+                        Installing laravel <br>
+                        Installing laravel UI for authentication system <br>
+                        Creation of models and migrations for:
+
+                    <ul type='i'>
+                        <li> Users - multiple authentication systems via Google and Github </li>
+
+                        <li> Libraries - Wikis </li>
+
+                    </ul>
+                </p>
+                </div>
+
+
+                <div id="list-item-10" class='pt-5'>
+                    <h4 class='mb-5'>Relevant Documents</h4> 
+                    
+                    <div class='row'>
+
+                        <div class='col-12 col-lg-4 mb-4'>
+                            <h6 class='text-info mb-4'> Design & Research </h6>
+                            <button class='btn border d-block mb-3'> <a href='#' style='color:#342859'> Link <i class='bi bi-upload mx-1'></i> </a> </button>
+                            <button class='btn border d-block'><a href='#' style='color:#342859'> Our Project Board <i class='bi bi-upload mx-1'></i> </a></button>
+                            <!-- D9DFFC -->
+                        </div>
+                        <div class='col-12 col-lg-4 mb-4'>
+                            <h6 class='text-info mb-4'> Product </h6>
+                            <button class='btn border d-block mb-3'> <a href='#' style='color:#342859'> Our Figma Board <i class='bi bi-upload mx-1'></i> </a>  </button>
+                            <button class='btn border d-block'> <a href='#' style='color:#342859'> Figjam <i class='bi bi-upload mx-1'></i> </a> </button>
+                        </div>
+                        <div class='col-12 col-lg-4 mb-4'>
+                            <h6 class='text-info mb-4'> Engineering  </h6>
+                            <button class='btn border d-block mb-3'> <a href='#' style='color:#342859'> Link <i class='bi bi-upload mx-1'></i> </a>  </button>
+                            <button class='btn border d-block'> <a href='#' style='color:#342859'> Link <i class='bi bi-upload mx-1'></i> </a> </button>
+
+                        </div>
+
+
+                    </div>
+                    
+                </div>
+        
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
