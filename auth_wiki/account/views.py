@@ -27,18 +27,15 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return HttpResponse("Registration successful.")
-            # messages.success(request, "Registration successful." )
-            # return redirect('library:home')
+            return redirect('library')
 
         return HttpResponse("Unsuccessful registration. Invalid information.")
-        # messages.error(request, "Unsuccessful registration. Invalid information.")    
             
     form = NewUserForm()
     context={
         'register_form':form,
     }
-    return render(request,'signup.html',context)
+    return render(request,'signup.html', context)
 
 def userlogin(request):
 	if request.method == "POST":
@@ -49,47 +46,46 @@ def userlogin(request):
 			user = authenticate(username=username, password=password)
 			if user is not None:
 				login(request, user)
-				messages.info(request, f"You are now logged in as {username}.")
-				return redirect("library:home")
+				messages.success(request, f"You are now logged in as {username}.")
+				return redirect("/")
                 
 			else:
-				messages.error(request,"Invalid username or password.")
+				return render(request, "login.html", context={"login_form":form, 'status':'error', 'alert_msg': 'User was not found try registering'})
+				
 		else:
-			messages.error(request,"Invalid username or password.")
+			return render(request, "login.html", context={"login_form":form, 'status':'error', 'alert_msg': 'The form was invalid'})
+
 	form = AuthenticationForm()
     
 	return render(request, "login.html", context={"login_form":form})
 
+@login_required(login_url='account:register')
 def userlogout(request):
 	logout(request)
-	messages.info(request, "You have successfully logged out.") 
-	return redirect("library:home")
+	messages.info(request, "You have successfully logged out.")
+	return redirect('account:login')
 
-@login_required
+
+@login_required(login_url='account:register')
 def profile(request):
     return render(request, "profile.html")   
 
 
-@login_required
+@login_required(login_url='account:register')
 def Editprofile(request):
-    if request.method == 'POST':
-        user_form = UpdateUserForm(request.POST, instance=request.user)
-        profile_form = UpdateProfileForm(request.POST, request.FILES, instance=request.user.profile)
-        print(profile_form)
-        if user_form.is_valid() and profile_form.is_valid():
-            user_form.save()
-            profile_form.save()
-            messages.success(request, 'Your profile is updated successfully')
-            return redirect('profile.html')
-    else:
-        user_form = UpdateUserForm(instance=request.user)
-        profile_form = UpdateProfileForm(instance=request.user.profile)
-        print('errorr')
-    return render(request, 'create_profile.html', {'user_form': user_form, 'profile_form': profile_form})
+	if request.method=='POST':
+		image = request.FILES['upload']
+		user = request.user
+		# profile = Profile(user=user, image=image)
+		profile = Profile(user=user)
+		profile.save()
+        #created_on = request.POST.get('created_on')
+        #updated_on = request.POST.get('updated_on')
+		return redirect("account:profile")
+        
+	return render(request,'create_profile.html')
 
-
-
-
+@login_required(login_url='account:register')
 def password_reset_request(request):
 	if request.method == "POST":
 		password_reset_form = PasswordResetForm(request.POST)

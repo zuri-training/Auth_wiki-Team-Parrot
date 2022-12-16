@@ -10,13 +10,14 @@ from account.models import *
 class Post(models.Model):
     title = models.TextField(max_length=500)
     description = models.TextField(max_length=700)
-    code_snippet = models.TextField(max_length=1000)
+    slug = models.SlugField(unique=True, db_index=True, null=True)
+    code_snippet = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-    # likes= models.IntegerField(default=0)
-    # dislikes= models.IntegerField(default=0)
-    downloadnumber = models.IntegerField(default=0)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    likes= models.ManyToManyField(User, blank=True, related_name='likes')
+    dislikes= models.ManyToManyField(User, blank=True, related_name='dislikes')
+    numberofdownloads = models.IntegerField(default=0)
     github = models.URLField(max_length=500, null=True, blank=True,)
     download = models.URLField(max_length=500, null=True, blank=True,)
     images = models.ImageField(upload_to='library_images', blank=True)
@@ -34,10 +35,8 @@ class Category(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    email = models.EmailField()
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    is_active = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['created_on']
@@ -67,6 +66,13 @@ class DownVote(models.Model):
 
 
 class Faq(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+
+    def __str__(self):
+        return self.title
+
+class Documentation(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
 

@@ -3,6 +3,21 @@
 {% load widget_tweaks %}
 
 {% block content %}
+
+  {% if status == 'error' %}
+
+  <div class="alert alert-danger" role="alert">
+    {{ alert_msg }}
+  </div>
+
+  {% elif status == 'success' %}
+
+  <div class="alert alert-success" role="alert">
+    {{ alert_msg }}
+  </div>
+
+  {% endif %}
+
   <div class="col-12 col-lg-6">
     <img class="main-img" src="https://wallpapercave.com/dwp1x/wp26286.jpg" alt="">
   </div>
