@@ -74,7 +74,7 @@ def profile(request):
 @login_required(login_url='account:register')
 def Editprofile(request):
 	if request.method=='POST':
-		image = request.FILES['upload']
+		# image = request.FILES['upload']
 		user = request.user
 		# profile = Profile(user=user, image=image)
 		profile = Profile(user=user)

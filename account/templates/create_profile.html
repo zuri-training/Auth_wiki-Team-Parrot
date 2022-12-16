@@ -12,9 +12,9 @@
 <div class="container px-4 py-4 mt-4"   >
     <!-- Account page navigation-->
 
-    <form action='{% url "createprofile" %}' method='POST'>
+    <form action='{% url "account:createprofile" %}' method='POST'>
         {% csrf_token %}
-        <!-- <input type='text' placeholder> -->
+        <a href="{% url 'account:profile' %}" class="text-end d-block me-3 mb-3">Profile</a>
 
         <div class='row'>
             <div class='col-12 col-md-2'>
@@ -27,9 +27,9 @@
                 <select class="form-select mt-3" id='select-field' aria-label="Default select example">
 
                     <option selected>Choose Avatar</option>
-                    <option  style='background-image:url("{% static "img/male.png" %}"); width:20px; height:30px;' value="male.png"> Male </option>
-                    <option style='background-image:url("{% static "img/female.jpg" %}")' value="female.jpg"> Female </option>
-                    <option value="3">Three</option>
+                    <option value="male.png"> Male </option>
+                    <option value="female.jpg"> Female </option>
+                    <!-- <option value="3">Three</option> -->
 
                 </select>
 
