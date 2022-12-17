@@ -18,27 +18,49 @@
 
         <div class='row'>
             <div class='col-12 col-md-2'>
-                <img scr='{% static "img/head.png" %}' class='rounded-end d-block mx-auto' width='100px' height='100px'>
+              {% if user.profile.image == 'male.png' %}
+              <div> <img src=' {% static "img/"|add:"male.png" %} ' alt='avatar' class='ms-3 border' width='100px' height='100px'> </div>
+              
+              {% else %}
+              <div> <img src=' {% static "img/"|add:"female.jpg" %} ' alt='avatar' class='ms-3 border' width='100px' height='100px'> </div>
+
+              {% endif %}
+                <!-- <img scr='{% static "img/head.png" %}' class='rounded-end d-block mx-auto' width='100px' height='100px'> -->
             </div>
             <div class='col-12 col-md-10'>
-                <label for='select-field d-block'> Change display picture </label>
-                <!-- <img src='{% static "img/head2.jpg" %}' > -->
-                
-                <select class="form-select mt-3" id='select-field' aria-label="Default select example">
 
-                    <option selected>Choose Avatar</option>
-                    <option value="male.png"> Male </option>
-                    <option value="female.jpg"> Female </option>
-                    <!-- <option value="3">Three</option> -->
+                     <!-- UserName Part -->
+                    <div class="mb-4">
+                        <label for='select-field d-block'> Change User Name</label>
+                        <!-- <img src='{% static "img/head2.jpg" %}' > -->
+                        
+                        <input class="form-control w-80" type="text" name="user_name" id="" value="{{user.username}}">
 
-                </select>
+                    </div>
+
+                    <label for='select-field d-block'> Change display picture </label>
+                    <!-- <img src='{% static "img/head2.jpg" %}' > -->
+                    
+                    <select class="form-select mt-1" name="image_selected" id='select-field' aria-label="Default select example">
+
+                        <option selected>Choose Avatar</option>
+                        <option value="male.png"> Male </option>
+                        <option value="female.jpg"> Female </option>
+                        <!-- <option value="3">Three</option> -->
+
+                    </select>
 
                 <button class='btn btn-success mt-4 mx-auto'> Change </button>
 
+
+            
+            
             </div>
 
-
         </div>
+
+   
+
 
     </form>
 

@@ -88,16 +88,28 @@
           <li class="nav-item dropdown d-none d-lg-block pe-5" style='list-style-type: none'>
             <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 
-              <div> <img scr='{% static "img/head.png" %}' alt='not found' class='rounded-circle' width='50px' height='50px'> </div>
-       
+              {% if user.profile.image == 'male.png' %}
+              <div> <img src=' {% static "img/"|add:"male.png" %} ' alt='not found' class='rounded-circle' width='50px' height='50px'> </div>
+              
+              {% else %}
+              <div> <img src=' {% static "img/"|add:"female.jpg" %} ' alt='not found' class='rounded-circle' width='50px' height='50px'> </div>
+
+              {% endif %}
               
             </a>
             <ul class="dropdown-menu" style='left: -250px; top: 60px'>
               <li>
                 <a class="dropdown-item" href="{% url 'account:profile' %}" title={{user.username}}>
                   <div class='d-flex justify-content-space-between align-items-center'>
-                    <div class='profile-circle me-3' style='padding: 15px 22px'> <strong class='text-center text-white'> {{user.username|first}} </strong> </div>
-                    <div class='profile-content'> <strong class='d-block text-start text-black'> {{user.username}} </strong> <small  style='color: #83878A;'> {{user.email}} </small> </div>
+                    {% if user.profile.image == 'male.png' %}
+                    <div> <img src=' {% static "img/"|add:"male.png" %} ' alt='not found' class='rounded-circle' width='50px' height='50px'> </div>
+                    
+                    {% else %}
+                    <div> <img src=' {% static "img/"|add:"female.jpg" %} ' alt='not found' class='rounded-circle' width='50px' height='50px'> </div>
+      
+                    {% endif %}
+                    <!-- <div class='profile-circle me-3' style='padding: 15px 22px'> <strong class='text-center text-white'> {{user.username|first}} </strong> </div> -->
+                    <div class='profile-content ms-3'> <strong class='d-block text-start text-black'> {{user.username}} </strong> <small  style='color: #83878A;'> {{user.email}} </small> </div>
 
                   </div>
                 </a>

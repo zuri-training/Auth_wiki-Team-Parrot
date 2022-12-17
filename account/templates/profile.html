@@ -23,7 +23,16 @@
         <div class="col-lg-4">
           <div class="card mb-4">
             <div class="card-body text-center">
-              <img src="{% static 'img/head.png' %}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+
+              {% if user.profile.image == 'male.png' %}
+              <div> <img src=' {% static "img/"|add:"male.png" %} ' alt='avatar' class='rounded-circle' width='150px' height='150px'> </div>
+              
+              {% else %}
+              <div> <img src=' {% static "img/"|add:"female.jpg" %} ' alt='avatar' class='rounded-circle' width='150px' height='150px'> </div>
+
+              {% endif %}
+
+              <!-- <img src="{% static 'img/head.png' %}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;"> -->
               <!-- <img src="{{user.profile.image.url}}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;"> -->
                 <h5 class="my-3">{{user.username}}</h5>
                 <a href="{% url 'account:createprofile'%}"><button type="button" class="btn btn-primary">Update Profile</button></a>

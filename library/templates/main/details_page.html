@@ -113,14 +113,21 @@
             {% for data in comments_data %}
             <div class='pple_comment_box border p-4'> 
                 <div class='first-row d-flex flex-direction-row'>
-
-                    {% if data.user.profile.first_name %}
+                    
+                    {% if user.profile.image == 'male.png' %}
+                    <div> <img src=' {% static "img/"|add:"male.png" %} ' alt='avatar' class='rounded-circle' width='50px' height='50px'> </div>
+                    
+                    {% else %}
+                    <div> <img src=' {% static "img/"|add:"female.jpg" %} ' alt='avatar' class='rounded-circle' width='50px' height='50px'> </div>
+      
+                    {% endif %}
+                    <!-- {% if data.user.profile.first_name %}
                     <img scr='{{data.user.profile.image.url}}' alt='' class='rounded-circle d-block' width='50px' height='50px'>
                     {% else %}
                     <div class='profile-circle' style='padding: 15px 22px; width:50px; height:50px'> <strong class='text-center text-white'> {{data.user.username|first}} </strong> </div>
-                    {% endif %}
+                    {% endif %} -->
 
-                    <div class='ms-3'>
+                    <div class='ms-3 mt-1'>
                         <strong class='d-block'>  {{ data.user.username|capfirst }} </strong>
                         <small class='text-muted text-end d-block'> {{ data.created_on }} </small>
 
