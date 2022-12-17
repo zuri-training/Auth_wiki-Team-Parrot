@@ -4,13 +4,29 @@
 {% load widget_tweaks %}
 
 {% block content %}
-  <div class="col-12 col-lg-6">
-    <img class="main-img" src="https://wallpapercave.com/dwp1x/wp26286.jpg" alt="">
+  <div class="col-12 col-lg-6 p-5">
+    <img class="main-img" src="{% static 'img/person.png' %}" alt="Register image" height="100px">
   </div>
   <div class="col-12 col-lg-6 main-form border">
     <form class="rounded p-0 w-80 d-flex justify-content-center" method="POST">
       <div class="px-3 px-sm-1 py-5">
         <h3 class="text-center mb-4">Create Account</h3>
+
+        {% if register_form.errors %}
+        {% for field in register_form %}
+
+            {% for error in field.errors %}
+              <div class="text-danger mb-3">
+                {{field.label}}: {{ error|escape }}
+
+              </div>
+            {% endfor %}
+
+        {% endfor %}
+      {% endif %}
+
+        
+   
 
         {% csrf_token %}
         <!-- <button class="btn btn-primary" type="submit">Register</button> -->
@@ -31,6 +47,7 @@
         </div>
         <div class="mb-3">
           {{ register_form.password2.label }}
+          <!-- {{ register_form }} -->
           {{ register_form.password2|add_class:'form-control mt-2'|attr:'type:password' }}
         </div>
         <div class="mb-2 form-check">

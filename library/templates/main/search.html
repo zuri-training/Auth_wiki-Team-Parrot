@@ -5,14 +5,27 @@
 
 {% block content %}
     <main class="container mt-5">
-    <!-- .search-code items -->
-    <div class="search-code__items my-5">
 
     {% if post_data.exists %}
+    <h2 class='text-start mt-5 pt-5'> {{length_of_data}} Result Found On <small> '{{searched_q}}' </small> </h2> 
+    
 
-    <h3 class='text-center my-5'> {{length_of_data}} Result Found On <small> '{{searched_q}}' </small> </h1> 
+    <div class="text-center pt-5">
+        <h3 class="font-bold">Search For Codes</h3>
+        <form style="width: 30%;" class="container-fluid w-sm-100 d-flex" action='{% url "search" %}' method='GET'>
+            {% csrf_token %}
+            <input class="form-control me-2 d-block" type="search" name="q" placeholder="Search" aria-label="Search">
+            
+            <button class='btn btn-dark d-inline'>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>  
+            </button> 
 
-    <div class="grid gap-5 mb-5">
+        </form>
+    </div>
+
+
+
+    <div class="grid gap-5 my-5">
 
         {% for data in post_data%}
             <a href='{% url "details" data.slug %}'>
@@ -25,9 +38,8 @@
                     </p>
                     </div>
 
-                    <div class="font-bold">
-                    <button class='btn btn-primary'> <i class="bi bi-download text-light"></i> Download </button>
-                    <!-- <span> <i class="bi bi-download text-success"></i> {{data.numberofdownloads}} Downloads</span> -->
+                    <div class="font-bold  text-muted">
+                        <span><i class="bi bi-download"></i> {{data.numberofdownloads}} downloads  </span>
                     </div>
                 </div>
                 </div>
@@ -36,9 +48,19 @@
     </div>
     
     {% else %}
-        <h1 class='text-center mt-5'> {{length_of_data}} Result Found On <small> <del> {{searched_q}} </del> </small> </h1> 
-        
-        
+        <h1 class='text-start pt-5 mt-5'> {{length_of_data}} Result Found On <small> <del> {{searched_q}} </del> </small> </h1> 
+        <div class="text-center pt-5">
+            <h3 class="font-bold">Search For Codes</h3>
+            <form style="width: 30%;" class="container-fluid w-sm-100 d-flex" action='{% url "search" %}' method='GET'>
+                {% csrf_token %}
+                <input class="form-control me-2 d-block" type="search" name="q" placeholder="Search" aria-label="Search">
+                
+                <button class='btn btn-dark d-inline'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>  
+                </button> 
+    
+            </form>
+        </div>
     {% endif %}
 
     </div>  

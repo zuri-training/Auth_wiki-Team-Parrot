@@ -2,6 +2,8 @@
 {% block title %} Auth Wiki - Sign Up {% endblock %}
 {% load widget_tweaks %}
 
+{% load static %}
+
 {% block content %}
 
   {% if status == 'error' %}
@@ -18,11 +20,11 @@
 
   {% endif %}
 
-  <div class="col-12 col-lg-6">
-    <img class="main-img" src="https://wallpapercave.com/dwp1x/wp26286.jpg" alt="">
+  <div class="col-12 col-lg-6 p-5">
+    <img class="main-img" src="{% static 'img/person.png' %}" alt="Login Image" height="100px">
   </div>
 
-  <div class="col-12 col-lg-6 main-form">
+  <div class="col-12 col-lg-6 main-form border">
     <form class="rounded p-0 w-80 d-flex justify-content-center" method="POST">
       {%csrf_token%}
       <div class="w-100 px-3 px-sm-4 py-5">

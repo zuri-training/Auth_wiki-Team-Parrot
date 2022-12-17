@@ -78,3 +78,21 @@ class Documentation(models.Model):
 
     def __str__(self):
         return self.title
+
+GENDER_CHOICES = (
+    ('male.png','MALE'),
+    ('female.jpg','FEMALE'),
+    # ('Choose not to say','CHOOSE NOT TO SAY'),
+    # ('Others','OTHERS'),
+    # ('Select Gender','SELECT GENDER')
+)
+
+
+class Team(models.Model):
+    name = models.CharField(max_length=100)
+    role = models.CharField(max_length=100)
+    image_choice = models.CharField(max_length=30, choices=GENDER_CHOICES, default='Select Gender')
+
+    def __str__(self):
+        return self.name
+    

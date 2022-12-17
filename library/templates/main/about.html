@@ -1,12 +1,13 @@
 {% extends 'main/base.html' %}
 
 {% block page_title %} About {% endblock %}
+{% load static %}
 
 {% block content %}
 
 <main class="container">
-  <div class="py-5">
-    <h3 class="text-center mt-5">About us</h3>
+  <div class="pt-3">
+    <h1 class="text-center">About us</h1>
     <div class="my-5">
       <p>
         Auth-Wiki is a library authentication application that allow users to create different
@@ -29,80 +30,33 @@
     </div>
     <h3 class="text-center">Meet Our Amazing Team</h3>
     <div class="mt-5">
-      <div class="d-flex flex-column align-items-center mb-5">
-        <p>Rukayat Lamidi</p>
-        <b>TEAM LEAD</b>
-      </div>
+
       <div class="team">
-        <div class="d-flex flex-column align-items-center">
-          <p>Margaret Ekerendu</p>
-          <b>PRODUCT DESIGN</b>
+      {% for data in about_data %}
+
+        <div class="d-flex flex-column align-items-center mb-5">
+
+          <div class="mb-3">
+
+            {% if data.image_choice == 'male.png' %}
+            <div> <img src=' {% static "img/"|add:"male.png" %} ' alt='not found' class='rounded-circle' width='50px' height='50px'> </div>
+            
+            {% else %}
+            <div> <img src=' {% static "img/"|add:"female.jpg" %} ' alt='not found' class='rounded-circle' width='50px' height='50px'> </div>
+
+            {% endif %}
+          </div>
+
+
+          <span>{{data.name}}</span>
+          <b>{{data.role}}</b>
         </div>
-        <div class="d-flex flex-column align-items-center">
-          <p>Ebubechukwu Ijezie</p>
-          <b>PRODUCT DESIGN</b>
-        </div>
-        <div class="d-flex flex-column align-items-center">
-          <p>Bright Uwaoma</p>
-          <b>PRODUCT DESIGN</b>
-        </div>
-        <div class="d-flex flex-column align-items-center">
-          <p>Ali Abdul-Quadir</p>
-          <b>PRODUCT DESIGN</b>
-        </div>
-        <div class="d-flex flex-column align-items-center">
-          <p>Ige Jide</p>
-          <b>PRODUCT DESIGN</b>
-        </div>
-        <div class="d-flex flex-column align-items-center">
-          <p>Loveth Iniovoghare</p>
-          <b>PRODUCT DESIGN</b>
-        </div>
-        <div class="d-flex flex-column align-items-center">
-          <p>Henry Ugwu</p>
-          <b>FULLSTACK DEV.</b>
-        </div>
-        <div class="d-flex flex-column align-items-center">
-          <p>Damilola Bilewu</p>
-          <b>PRODUCT DESIGN</b>
-        </div>
-        <div class="d-flex flex-column align-items-center">
-          <p>Dorcas Abraham</p>
-          <b>PRODUCT DESIGN</b>
-        </div>
-        <div class="d-flex flex-column align-items-center">
-          <p>Akinde Oluwadamilola</p>
-          <b>PRODUCT DESIGN</b>
-        </div>
-        <div class="d-flex flex-column align-items-center">
-          <p>Onokwakpor Oghenekparobo</p>
-          <b>FRONTEND DEV.</b>
-        </div>
-        <div class="d-flex flex-column align-items-center">
-          <p>Francis Chukwuoma</p>
-          <b>BACKEND DEV.</b>
-        </div>
-        <div class="d-flex flex-column align-items-center">
-          <p>Oyepitan Fortune</p>
-          <b>BACKEND DEV.</b>
-        </div>
-        <div class="d-flex flex-column align-items-center">
-          <p>Oluwatimilehin Erinle</p>
-          <b>FULLSTACK DEV.</b>
-        </div>
-        <div class="d-flex flex-column align-items-center">
-          <p>Oluwaseun Akanji</p>
-          <b>FULLSTACK DEV.</b>
-        </div>
-        <div class="d-flex flex-column align-items-center">
-          <p>Khadija Danhassan</p>
-          <b>FULLSTACK DEV.</b>
-        </div>
-        <div class="d-flex flex-column align-items-center">
-          <p>Morah Chukwuemeka</p>
-          <b>FULLSTACK DEV.</b>
-        </div>
+
+        {% endfor %}
+      
       </div>
+
+
     </div>
   </div>
 </main>
