@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import *
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
@@ -22,22 +22,29 @@ def home(request):
     return render(request, 'main/index.html')
 
 def register(request):
-    if request.method=='POST':
-        form = NewUserForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('library')
+	if request.user.is_authenticated:
+		return redirect("/")
+	if request.method=='POST':
+		form = NewUserForm(request.POST)
+		if form.is_valid():
+			user = form.save()
+			login(request, user)
+			profile = Profile(user=request.user)
+			profile.save()
+			return redirect('library')
 
-        return HttpResponse("Unsuccessful registration. Invalid information.")
+		return HttpResponse("Unsuccessful registration. Invalid information.")
             
-    form = NewUserForm()
-    context={
+	form = NewUserForm()
+	context={
         'register_form':form,
     }
-    return render(request,'signup.html', context)
+	return render(request,'signup.html', context)
 
 def userlogin(request):
+	if request.user.is_authenticated:
+		return redirect("/")
+
 	if request.method == "POST":
 		form = AuthenticationForm(request, data=request.POST)
 		if form.is_valid():
@@ -74,13 +81,12 @@ def profile(request):
 @login_required(login_url='account:register')
 def Editprofile(request):
 	if request.method=='POST':
-		# image = request.FILES['upload']
-		user = request.user
-		# profile = Profile(user=user, image=image)
-		profile = Profile(user=user)
+		selected_image = request.POST['image_selected']
+		# new_user_name = request.POST['user_name']
+		# request.user = new_user_name
+		profile = get_object_or_404(Profile, user=request.user)
+		profile.image = selected_image
 		profile.save()
-        #created_on = request.POST.get('created_on')
-        #updated_on = request.POST.get('updated_on')
 		return redirect("account:profile")
         
 	return render(request,'create_profile.html')

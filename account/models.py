@@ -24,7 +24,7 @@ class Avatar(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     # image = models.ForeignKey(Avatar, on_delete=models.CASCADE, related_name='avatars')
-    # image = forms.ChoiceField(choices = GEEKS_CHOICES)
+    image = models.CharField(max_length=100, blank=False, default='male.png')
     created_on = models.DateTimeField(default=datetime.now, blank=True)
     updated_on = models.DateTimeField(default=datetime.now, blank=True)
    
