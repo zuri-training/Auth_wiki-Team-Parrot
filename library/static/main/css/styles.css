@@ -191,10 +191,10 @@ label {
 }
 
 /* header styles */
-.header-img {
-  width: 664px;
-  height: 484px;
-}
+/* .header-img {
+  width: 300px;
+  height: 300px;
+} */
 
 .header-cta {
   background: var(--light-blue);

@@ -7,13 +7,9 @@
 
 
 {% block content %}
-    <div class='link-nav' > 
-        <div class='py-3 ps-3'> <a href='{% url "home" %}'> Home </a>/<a href='{% url "library" %}'> Library </a>/ {{detail_post.title}} </div>
-     </div>
-
     <div class='container'>
 
-        <h1 class='post-title mt-5'> {{detail_post.title}} </h1>
+        <h1 class='post-title pt-3'> {{detail_post.title}} </h1>
 
         <div class='post-description py-3'>
             {{detail_post.description}}
@@ -62,12 +58,12 @@
                         <div class="modal-body p-5">
                             <h4 class='text-center mb-5'> Continue Download </h4>
                             <div class=''>
-                                <button type="button" class="btn btn-primary px-5 me-5"onclick='saveStaticDataToFile()' >Yes</button>
+                                <button type="button" class="btn btn-primary px-5 me-5" onclick='saveStaticDataToFile()' data-bs-dismiss="modal">Yes</button>
                                 <script>
                                         function saveStaticDataToFile() {
                                             var content = document.getElementsByClassName('snippet_code')[0].innerHTML
                                             var title = document.getElementsByClassName('post-title')[0].innerHTML
-                                            var blob = new Blob([content],
+                                            var blob = new Blob([content], 
                                                 { type: "text/plain;charset=utf-8" });
                                             saveAs(blob, `${title}-auth-wiki.txt`);
                                         }

@@ -15,15 +15,16 @@ from django.db.models.query_utils import Q
 # Create your views here.
 def home_view(request):
     template_name = 'main/index.html'
-    context = {}
-
-    return render(request, template_name)
+    data = Post.objects.all()
+    context = {'post_data':data[:4]}
+    return render(request, template_name, context)
 
 def about_view(request):
     template_name = 'main/about.html'
-    context = {}
+    data = Team.objects.all()
+    context = {'about_data':data}
 
-    return render(request, template_name)
+    return render(request, template_name, context=context)
 
 def faq_view(request):
     template_name = 'main/faq.html'
@@ -74,7 +75,6 @@ def detail_view(request, slug):
 
     return render(request, template_name, context)
 
-
 def search_library(request):
     search_q = request.GET.get('q')
     filtered_object = Post.objects.filter(Q(title__contains=search_q) | Q(description__contains=search_q))
@@ -84,7 +84,6 @@ def search_library(request):
         'searched_q': search_q,
     }
     return render(request, 'main/search.html', context)
-    
 
 
 
