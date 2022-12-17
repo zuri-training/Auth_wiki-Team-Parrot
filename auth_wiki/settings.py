@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'widget_tweaks',
     'rest_framework',
+    "corsheaders",
     # for social and google sign in  
     'allauth',  
     'allauth.socialaccount',
@@ -70,6 +71,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -148,6 +150,10 @@ USE_I18N = True
 
 USE_TZ = True
 
+CORS_ALLOWED_ORIGINS = [
+    "https://authwiki-team-parrot-production.up.railway.app",
+    "http://localhost:8000",
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
