@@ -31,7 +31,7 @@ urlpatterns = [
     
     path('profile/', views.profile, name='profile'),
     
-    path('updateprofile/',views.Editprofile, name='createprofile'),
+    path('updateprofile/', views.Editprofile, name='createprofile'),
     path("password_reset", views.password_reset_request, name="password_reset")
 
     

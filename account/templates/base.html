@@ -17,11 +17,12 @@
       <nav class="navbar navbar-expand-lg un-nav py-3">
         <div class="container-fluid">
           <div class="nav-logo pl-5">
-            <a class="navbar-brand" href="{% url 'home' %}"
-              ><span><img src="{% static 'main/img/head.png'%}" alt="logo-head" /></span>
+            <a class="navbar-brand ms-3" href="{% url 'home' %}"
+              ><span><img src="{% static 'main/img/auth_wiki_logo.png' %}" alt="logo-head" width="40px" height="40px" /></span>
               <span class="logo-text">AUTH-WIKI</span></a
             >
           </div>
+  
           <button
             class="navbar-toggler"
             type="button"
@@ -34,7 +35,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-auto">
+            <ul class="navbar-nav me-auto mb-2 mt-3 mt-lg-0 mb-lg-0 ms-lg-auto">
               <li class="nav-item active text-style">
                 <a class="nav-link" href="{% url 'about' %}">About</a>
               </li>
@@ -42,52 +43,90 @@
                 <a class="nav-link" href="{% url 'faq' %}">Faqs</a>
               </li>
               <li class="nav-item text-style">
-                <a class="nav-link" href="{% url 'documentations' %}">Documentation</a>
-              </li>         
+                <a class="nav-link" href="{% url 'documentations' %}">Documentations</a>
+              </li>    
               <li class="nav-item text-style">
                 <a class="nav-link" href="{% url 'library' %}">Library</a>
               </li>
+  
+              {% if user.is_authenticated %}
+  
+  
+                <li class="nav-item text-style d-block d-lg-none ">
+                  <a class="nav-link" href="{% url 'account:profile' %}">Profile</a>
+                </li>
+      
+                <li class="nav-item text-style d-block d-lg-none ">
+                  <a class="nav-link" href="{% url 'account:logout' %}">Log Out</a>
+                </li>
+              
+              {% endif %}
+  
             </ul>
-
+  
+  
             {% if user.is_authenticated %}
-
-            <div class="me-4">
-              <a href="{% url 'account:logout' %}" class="btn btn-warning un-link">
-               Log out
+   
+  
+            <li class="nav-item dropdown d-none d-lg-block pe-5" style='list-style-type: none'>
+              <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+  
+                {% if user.profile.image == 'male.png' %}
+                <div> <img src=' {% static "img/"|add:"male.png" %} ' alt='not found' class='rounded-circle' width='50px' height='50px'> </div>
+                
+                {% else %}
+                <div> <img src=' {% static "img/"|add:"female.jpg" %} ' alt='not found' class='rounded-circle' width='50px' height='50px'> </div>
+  
+                {% endif %}
+                
               </a>
-            </div>
-
-            {% else %}
-
-            <div class="me-4">
-              <a href="{% url 'account:login' %}" class="btn btn-outline-warning un-link">
-               Sign In
-              </a>
-            </div>
-
-            <div>
-              <a href="{% url 'account:register' %}" class="btn un-link btn-warning">Sign Up</a>
-            </div>
-
+              <ul class="dropdown-menu" style='left: -250px; top: 60px'>
+                <li>
+                  <a class="dropdown-item" href="{% url 'account:profile' %}" title={{user.username}}>
+                    <div class='d-flex justify-content-space-between align-items-center'>
+                      {% if user.profile.image == 'male.png' %}
+                      <div> <img src=' {% static "img/"|add:"male.png" %} ' alt='not found' class='rounded-circle' width='50px' height='50px'> </div>
+                      
+                      {% else %}
+                      <div> <img src=' {% static "img/"|add:"female.jpg" %} ' alt='not found' class='rounded-circle' width='50px' height='50px'> </div>
+        
+                      {% endif %}
+                      <!-- <div class='profile-circle me-3' style='padding: 15px 22px'> <strong class='text-center text-white'> {{user.username|first}} </strong> </div> -->
+                      <div class='profile-content ms-3'> <strong class='d-block text-start text-black'> {{user.username}} </strong> <small  style='color: #83878A;'> {{user.email}} </small> </div>
+  
+                    </div>
+                  </a>
+                </li>
+                <hr>
+                <li><a class="dropdown-item" href="{% url 'account:profile' %}">Profile</a></li>
+                <hr class="dropdown-divider">
+                <li><a class="dropdown-item" href="{% url 'account:createprofile' %}">Edit Profile</a></li>
+                <hr class="dropdown-divider">
+                <li><a class="dropdown-item" href="{% url 'account:logout' %}">Logout</a></li>
+              </ul>
+            </li>
+    
             {% endif %}
-
+            
+  
+            {% if not user.is_authenticated %}
+  
             <div class="d-flex">
-  
-  
-              <!-- Auth users -->
-              <!-- <div>
-                <a href="#" class="btn btn-warning">
-                  <span>
-                    <img class="update-profile__img" src="./assets/head.png" alt="logo-head"
-                  /></span>
-                  <span>Profile</span>
+              <div class="me-4">
+                <a href="{% url 'account:login' %}" class="btn btn-outline-warning un-link">
+                 Sign In
                 </a>
-              </div> -->
+              </div>
+  
+              <div>
+                <a href="{% url 'account:register' %}" class="btn un-link btn-warning">Sign Up</a>
+              </div>
+  
+            {% endif %}
             </div>
           </div>
         </div>
       </nav>
-  
 
       <div class="container-fluid">
         <div class="contain rounded my-5 shadow">
@@ -96,6 +135,17 @@
           </div>
         </div>  
       </div>  
+
     </section>
+
+
+  <script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+  crossorigin="anonymous"
+  ></script>
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin = "anonymous" referrerpolicy = "no-referrer"> </script>
+
 </body>
 </html>
+
