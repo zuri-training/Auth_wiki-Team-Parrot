@@ -14,7 +14,7 @@ from django.db.models.query_utils import Q
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
-from django.views.decorators.csrf import csrf_exempt, csrf_protect
+from django.views.decorators.csrf import csrf_exempt, csrf_protect, requires_csrf_token
 
 
 
@@ -22,7 +22,8 @@ from django.views.decorators.csrf import csrf_exempt, csrf_protect
 def home(request):
     return render(request, 'main/index.html')
 
-@csrf_protect
+# @csrf_protect
+@requires_csrf_token
 def register(request):
 	if request.user.is_authenticated:
 		return redirect("/")
@@ -42,7 +43,8 @@ def register(request):
 	form = NewUserForm()
 	return render(request,'signup.html', context={'register_form':form})
 
-@csrf_protect
+# @csrf_protect
+@requires_csrf_token
 def userlogin(request):
 	if request.user.is_authenticated:
 		return redirect("/")
