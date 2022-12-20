@@ -15,7 +15,7 @@ from django.db.models.query_utils import Q
 # Create your views here.
 def home_view(request):
     template_name = 'main/index.html'
-    data = Post.objects.all()
+    data = Post.objects.all().order_by('-category')
     context = {'post_data':data[:4]}
     return render(request, template_name, context)
 

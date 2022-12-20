@@ -29,13 +29,12 @@ def register(request):
 		return redirect("/")
 	if request.method=='POST':
 		form = NewUserForm(request.POST)
-		print(form.errors)
 		if form.is_valid():
 			user = form.save()
 			login(request, user)
 			profile = Profile(user=request.user)
 			profile.save()
-			return redirect('library')
+			return redirect('/')
 
 		form = NewUserForm(request.POST)
 		return render(request,'signup.html', context={'register_form':form, 'errors': form.errors})
