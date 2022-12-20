@@ -73,6 +73,9 @@ label {
 .text-sm {
   font-size: var(--font-small);
 }
+.w-30{
+  width: 30%;
+}
 .w-60 {
   width: 60%;
 }
